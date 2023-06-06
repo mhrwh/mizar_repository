@@ -249,7 +249,7 @@ A4: not a < a"\/"d by A2;
 end;
 
 begin :: Adjectives
-
+aaaaaaa
 definition
   struct AdjectiveStr (# adjectives -> set, non-op -> UnOp of the adjectives
   #);
@@ -708,7 +708,7 @@ proof
   then ex t9 being type of T st t = t9 & a in adjs t9 by Def12;
   hence thesis;
 end;
-aaaaaa
+
 theorem Th14:
   for T being non empty TA-structure for t being type of T, A
   being Subset of the adjectives of T holds A c= adjs t iff t in types A
