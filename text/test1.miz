@@ -4098,7 +4098,7 @@ registration let p; let q be non empty XFinSequence;
   cluster q^p -> non empty;
   coherence by AFINSQ_1:30;
 end;
-
+aaa
 theorem
   CutLastLoc(p^<%x%>) = p
 proof set q = CutLastLoc(p^<%x%>);
