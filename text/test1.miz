@@ -126,7 +126,7 @@ proof
 end;
 
 begin
-
+ 
 theorem Th2:
   for X0 being finite natural-membered set holds ex n st X0 c= Segm n
 proof
