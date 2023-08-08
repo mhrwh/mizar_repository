@@ -223,7 +223,7 @@ registration
   cluster the InternalRel of T -> co-well_founded;
   coherence by Def1;
 end;
-aaa
+
 theorem Th1:
   for T being Noetherian sup-Semilattice for I being Ideal of T
   holds ex_sup_of I, T & sup I in I
