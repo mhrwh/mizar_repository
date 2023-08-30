@@ -52,7 +52,7 @@ registration
 end;
 
 definition
-  let be RelStr;
+  let T be RelStr;
   mode type of T is Element of T;
 end;
 
@@ -73,7 +73,7 @@ registration
     assume
 A1: Y c= field R;
     assume Y <> {};
-    then reconsider X = Y as non empty set;
+    then reconsider X = Y as non  set;
     set a = the Element of X;
     take a;
     thus a in Y;
