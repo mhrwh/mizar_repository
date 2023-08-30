@@ -52,7 +52,7 @@ registration
 end;
 
 definition
-  let T be RelStr;
+  let be RelStr;
   mode type of T is Element of T;
 end;
 
