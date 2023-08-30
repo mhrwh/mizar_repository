@@ -73,7 +73,7 @@ registration
     assume
 A1: Y c= field R;
     assume Y <> {};
-    then reconsider X = Y as non  set;
+    then reconsider X = Y as non empty set;
     set a = the Element of X;
     take a;
     thus a in Y;
