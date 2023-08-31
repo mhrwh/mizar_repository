@@ -1539,7 +1539,7 @@ A41:  j+1 in dom v2 by A36,A38,FINSEQ_3:25;
     .= len p+1 by FINSEQ_1:22;
   hence thesis by A3,A5,A10,Def19;
 end;
-aaaaa
+aaaaaaa
 theorem Th35:
   for T being non empty non void reflexive transitive TA-structure
 for t being type of T for v1,v2 being FinSequence of the adjectives of T for i
