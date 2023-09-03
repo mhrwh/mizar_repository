@@ -1539,7 +1539,7 @@ A41:  j+1 in dom v2 by A36,A38,FINSEQ_3:25;
     .= len p+1 by FINSEQ_1:22;
   hence thesis by A3,A5,A10,Def19;
 end;
-aaaaaaa
+
 theorem Th35:
   for T being non empty non void reflexive transitive TA-structure
 for t being type of T for v1,v2 being FinSequence of the adjectives of T for i
@@ -3653,5 +3653,5 @@ A1: a in adjs t or not a in adjs t;
 A2: a ast t, t are_convertible_wrt T@--> by REWRITE1:25;
   T@--> is with_Church-Rosser_property with_UN_property
   strongly-normalizing Relation by Th69,Th77;
-  hence thesis by A2,REWRITE1:55;
+  hence thesis by A3,REWRITE1:55;
 end;
