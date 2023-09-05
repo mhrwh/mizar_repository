@@ -3653,5 +3653,5 @@ A1: a in adjs t or not a in adjs t;
 A2: a ast t, t are_convertible_wrt T@--> by REWRITE1:25;
   T@--> is with_Church-Rosser_property with_UN_property
   strongly-normalizing Relation by Th69,Th77;
-  hence thesis by A2,REWRITE1:55;
+  hence thesis by A3,REWRITE1:55;
 end;
