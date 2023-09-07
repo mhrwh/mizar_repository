@@ -42,7 +42,7 @@ environ
       YELLOW_7, WAYBEL_6, WAYBEL_8, ZFMISC_1, FINSEQ_2, FINSEQ_3, HILBERT2,
       REWRITE1, ORDINAL1, XREAL_1, XXREAL_0, CARD_2;
  schemes XBOOLE_0, NAT_1, FUNCT_1, FUNCT_2, RECDEF_1, RELSET_1, ORDERS_1,
-      XFAMILY, AAA;
+      XFAMILY;
 
 begin :: Semilattice of type widening
 
@@ -3653,5 +3653,5 @@ A1: a in adjs t or not a in adjs t;
 A2: a ast t, t are_convertible_wrt T@--> by REWRITE1:25;
   T@--> is with_Church-Rosser_property with_UN_property
   strongly-normalizing Relation by Th69,Th77;
-  hence thesis by A3,REWRITE1:55;
+  hence thesis by A2,REWRITE1:55;
 end;
