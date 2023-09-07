@@ -1067,7 +1067,6 @@ theorem
 proof
   let T be Noetherian adj-structured reflexive transitive antisymmetric
   with_suprema TA-structure;
-  let s be type of T;
   let t be type of T;
   let a,b be adjective of T such that
 A1: a is_applicable_to t and
