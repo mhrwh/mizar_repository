@@ -42,7 +42,7 @@ environ
       YELLOW_7, WAYBEL_6, WAYBEL_8, ZFMISC_1, FINSEQ_2, FINSEQ_3, HILBERT2,
       REWRITE1, ORDINAL1, XREAL_1, XXREAL_0, CARD_2;
  schemes XBOOLE_0, NAT_1, FUNCT_1, FUNCT_2, RECDEF_1, RELSET_1, ORDERS_1,
-      XFAMILY;
+      XFAMILY AAA;
 
 begin :: Semilattice of type widening
 
