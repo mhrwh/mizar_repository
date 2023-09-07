@@ -3621,7 +3621,7 @@ A2: t1 <= radix t2 by A1,YELLOW_0:def 2;
   set X = the carrier of T;
   defpred P[Element of X, Element of X] means $1 <= radix t2 implies $2 <=
   radix t2;
-A3: for x,y,w being Element of X st P[x,y] & P[y,z] holds P[x,z];
+A3: for x,y,z being Element of X st P[x,y] & P[y,z] holds P[x,z];
 A4: now
     let x,y be Element of X;
     reconsider t1 = x, t2 = y as type of T;
@@ -3642,7 +3642,7 @@ empty non void reflexive transitive Noetherian TAS-structure for t being type
   of T, a being adjective of T st a is_properly_applicable_to t holds radix (a
   ast t) = radix t
 proof
-  let T be adj-structured with_suprema antisymmetric commutative non empty
+  let S be adj-structured with_suprema antisymmetric commutative non empty
   non void reflexive transitive Noetherian TAS-structure;
   let t be type of T, a be adjective of T;
 A1: a in adjs t or not a in adjs t;
