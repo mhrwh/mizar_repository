@@ -1059,7 +1059,7 @@ A2: a ast t <= t by Th20;
 end;
 
 theorem
-  for T,S being Noetherian adj-structured reflexive transitive
+  for T being Noetherian adj-structured reflexive transitive
   antisymmetric with_suprema TA-structure for t being type of T for a,b being
   adjective of T st a is_applicable_to t & b is_applicable_to a ast t holds b
   is_applicable_to t & a is_applicable_to b ast t & a ast (b ast t) = b ast (a
@@ -1067,6 +1067,7 @@ theorem
 proof
   let T be Noetherian adj-structured reflexive transitive antisymmetric
   with_suprema TA-structure;
+  let s be type of T;
   let t be type of T;
   let a,b be adjective of T such that
 A1: a is_applicable_to t and
