@@ -42,7 +42,7 @@ environ
       YELLOW_7, WAYBEL_6, WAYBEL_8, ZFMISC_1, FINSEQ_2, FINSEQ_3, HILBERT2,
       REWRITE1, ORDINAL1, XREAL_1, XXREAL_0, CARD_2;
  schemes XBOOLE_0, NAT_1, FUNCT_1, FUNCT_2, RECDEF_1, RELSET_1, ORDERS_1,
-      XFAMILY AAA;
+      XFAMILY, AAA;
 
 begin :: Semilattice of type widening
 
@@ -76,7 +76,7 @@ A1: Y c= field R;
     then reconsider X = Y as non empty set;
     set a = the Element of X;
     take a;
-    thus a in Y;
+    thus a,b in Y;
 A2: a in field R by A1;
     let b be object;
 A3: field R c= (the carrier of S) \/ the carrier of S by RELSET_1:8;
