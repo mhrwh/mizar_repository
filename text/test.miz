@@ -2203,7 +2203,7 @@ A12: rng v = {} the adjectives of T;
   for n being Nat holds P[n] from NAT_1:sch 2(A10,A1);
   hence thesis;
 end;
-
+aaaa
 begin :: Subject function
 
 definition
