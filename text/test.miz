@@ -3642,7 +3642,7 @@ empty non void reflexive transitive Noetherian TAS-structure for t being type
   of T, a being adjective of T st a is_properly_applicable_to t holds radix (a
   ast t) = radix t
 proof
-  let S be adj-structured with_suprema antisymmetric commutative non empty
+  let T be adj-structured with_suprema antisymmetric commutative non empty
   non void reflexive transitive Noetherian TAS-structure;
   let t be type of T, a be adjective of T;
 A1: a in adjs t or not a in adjs t;
