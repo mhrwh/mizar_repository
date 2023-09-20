@@ -118,7 +118,7 @@ proof
   & for x1, x2 being Point of E
   st x1 in E1 & x2 in E1 & ||. x1 - x2 .|| < s holds
   ||. ((f /. x1) - (f /. x2)) .|| < r
-  by NFCONT_2:   def 1, AS4;
+  by NFCONT_2:def 1, AS4;
 
   LM1:
   for x be Point of E,
