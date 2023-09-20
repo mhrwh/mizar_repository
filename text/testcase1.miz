@@ -659,9 +659,9 @@ proof
     P5: rng seq c= the carrier of E by P1, XBOOLE_1: 1;
     P6: lim seq in the carrier of E by P1;
     P13: g1 /* seq is convergent & lim g1 /* seq = g1 /. (lim seq)
-    by P1, P2, P3, P15, NFCONT_1: 18;
+    by P1, P17, P18, P15, NFCONT_1: 18;
     P14: g2 /* seq is convergent & lim g2 /* seq = g2 /. (lim seq)
-    by P1, P2, P3, P16, NFCONT_1: 18;
+    by P1, P19, P20, P16, NFCONT_1: 18;
     P7A1: dom (g1 | E1) = dom f by P15
     .= E1 by AS3;
     then
@@ -672,14 +672,14 @@ proof
     then
     P7B1: rng seq c= dom (g2 | E1) by P1;
 
-    P17: g1 /* seq
-    = f /* seq by FUNCT_2: 117, P7A, P15
-    .= g2 /* seq by FUNCT_2: 117, P7B, P16;
+    P21: g1 /* seq
+    = f /* seq by FUNCT_2: 117, P7A2, P15
+    .= g2 /* seq by FUNCT_2: 117, P7B2, P16;
 
     thus g1 . x = g1 /. x by PARTFUN1:def 6, FUNCT_2:def 1
     .= g1 /. (lim seq) by P1
-    .= lim g1 /* seq by P4
-    .= lim g2 /* seq by P17
+    .= lim g1 /* seq by P22
+    .= lim g2 /* seq by P21
     .= g2 /. (lim seq) by P5
     .= g2 /. x by P1
     .= g2 . x by PARTFUN1:def 6, FUNCT_2:def 1;
@@ -1422,11 +1422,11 @@ proof
     H28: lim ||. Lf /* xseq .|| <= ||. f .|| * ||. x .|| by H27, H25;
 
     ||. f .|| * ||. x .|| <= ||. f .|| * 1
-    by H1, XREAL_1: 64, NORMSP_1: 4;
+    by H31, XREAL_1: 64, NORMSP_1: 4;
     then
-    ||. Pg . x .|| <= ||. f .|| by H26, H14, XXREAL_0: 2;
+    ||. Pg . x .|| <= ||. f .|| by H26, H32, XXREAL_0: 2;
     hence
-    t <= ||. f .|| by H1;
+    t <= ||. f .|| by H33;
 
   end;
   then
@@ -1481,17 +1481,17 @@ proof
     Pg1 is_uniformly_continuous_on the carrier of E
     by LMCONT1;
     then
-    H31: Pg1 is_continuous_on the carrier of E
+    H34: Pg1 is_continuous_on the carrier of E
     by NFCONT_2: 7;
     Pg2 is_uniformly_continuous_on the carrier of E
     by LMCONT1;
     then
-    H32: Pg2 is_continuous_on the carrier of E
+    H35: Pg2 is_continuous_on the carrier of E
     by NFCONT_2: 7;
-    H33: Pg1 | E0 = Lf by H1, AS3;
-    Pg2 | E0 = Lf by H1, AS3;
+    H36: Pg1 | E0 = Lf by H37, AS3;
+    Pg2 | E0 = Lf by H38, AS3;
     then
-    Pg1 = Pg2 by P3, H31, H32, H33;
+    Pg1 = Pg2 by P3, H34, H35, H36;
     hence thesis;
   end;
 end;
@@ -2095,36 +2095,36 @@ proof
     assume
     A14: y in dom (curry' L);
     reconsider Ly = (curry' L) . y
-    as Function of E, G by LM3, A6, DM1;
+    as Function of E, G by LM3, A15, DM1;
     for x1, x2 be Point of E
     holds
     Ly . (x1 + x2) = Ly . x1 + Ly . x2
     proof
       let x1, x2 be Point of E;
-      F4: L . (x1, y) = Ly . x1 by LM5, A6, DM1;
-      F5: L . (x2, y) = Ly . x2 by LM5, A6, DM1;
+      F4: L . (x1, y) = Ly . x1 by LM5, A16, DM1;
+      F5: L . (x2, y) = Ly . x2 by LM5, A17, DM1;
       thus Ly . (x1 + x2)
-      = L . (x1 + x2, y) by LM5, A6, DM1
+      = L . (x1 + x2, y) by LM5, A18, DM1
       .= L . (x1, y) + L . (x2, y) by A7
       .= Ly . x1 + Ly . x2 by F4, F5;
     end;
     then
-    A15: Ly is additive by VECTSP_1:def 20;
+    A19: Ly is additive by VECTSP_1:def 20;
 
     for x be Point of E, a be Real
     holds
     Ly . (a * x) = a * Ly . x
     proof
       let x be Point of E, a be Real;
-      F6: L . (x, y) = Ly . x by LM5, A6, DM1;
+      F6: L . (x, y) = Ly . x by LM5, A20, DM1;
       thus Ly . (a * x)
-      = L . (a * x, y) by LM5, A6, DM1
+      = L . (a * x, y) by LM5, A21, DM1
       .= a * L . (x, y) by A8
       .= a * Ly . x by F6;
     end;
     then
     Ly is homogeneous by LOPBAN_1:def 5;
-    hence thesis by A15;
+    hence thesis by A19;
   end;
   hence L is Bilinear by A11, A14, DefBilinear;
 end;
