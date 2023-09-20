@@ -118,7 +118,7 @@ proof
   & for x1, x2 being Point of E
   st x1 in E1 & x2 in E1 & ||. x1 - x2 .|| < s holds
   ||. ((f /. x1) - (f /. x2)) .|| < r
-  by NFCONT_2:    def 1, AS4;
+  by NFCONT_2:   def 1, AS4;
 
   LM1:
   for x be Point of E,
@@ -1704,7 +1704,7 @@ definition
   let f be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G;
-  attr f is Bilinear means:DefBilinear:
+  attr f is Bilinear means: DefBilinear:
   (for v being Point of E
   st v in dom (curry f)
   holds (curry f) . v is additive homogeneous
@@ -2136,7 +2136,7 @@ end;
 definition
   let E, F, G be RealLinearSpace;
   let f be Function of [: E, F :], G;
-  attr f is Bilinear means:DefBilinear2:
+  attr f is Bilinear means: DefBilinear2:
   ex g be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G
@@ -2240,7 +2240,7 @@ end;
 definition
   let E, F, G be RealNormSpace;
   let f be Function of [: E, F :], G;
-  attr f is Bilinear means:DefBilinear3:
+  attr f is Bilinear means: DefBilinear3:
   ex g be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G
