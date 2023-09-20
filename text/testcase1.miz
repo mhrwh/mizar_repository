@@ -64,7 +64,7 @@ theorem Th010:
   for E, F be RealNormSpace
   st E is complete
   & F is complete
-  holds [: E, F :] is complete;
+  holds [ : E, F :] is complete;
 
 theorem Th020:
   for E, F be RealNormSpace,
@@ -1700,7 +1700,7 @@ definition
   let f be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G;
-  attr f is Bilinear means: DefBilinear:
+  attr f is Bilinear means:DefBilinear:
   (for v being Point of E
   st v in dom (curry f)
   holds (curry f) . v is additive homogeneous
@@ -2132,7 +2132,7 @@ end;
 definition
   let E, F, G be RealLinearSpace;
   let f be Function of [: E, F :], G;
-  attr f is Bilinear means: DefBilinear2:
+  attr f is Bilinear means:DefBilinear2:
   ex g be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G
@@ -2236,7 +2236,7 @@ end;
 definition
   let E, F, G be RealNormSpace;
   let f be Function of [: E, F :], G;
-  attr f is Bilinear means: DefBilinear3:
+  attr f is Bilinear means:DefBilinear3:
   ex g be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G
