@@ -59,14 +59,14 @@ reserve f, f1, f2 for PartFunc of S, T;
 reserve Z for Subset of S;
 reserve i, n for Nat;
 
-theorem Th010:
+theorem Th010 :
 
   for E, F be RealNormSpace
   st E is complete
   & F is complete
   holds [: E, F :] is complete;
 
-theorem Th020:
+theorem Th020 :
   for E, F be RealNormSpace,
   E1 be Subset of E,
   f be PartFunc of E, F
@@ -103,15 +103,15 @@ proof
   E1 be Subset of E,
   f be PartFunc of E, F;
   assume that
-  AS1: E1 is dense
+  AS1 : E1 is dense
   and
-  AS2: F is complete
+  AS2 : F is complete
   and
-  AS3: dom f = E1
+  AS3 : dom f = E1
   and
-  AS4: f is_uniformly_continuous_on E1;
+  AS4 : f is_uniformly_continuous_on E1;
 
-  P1: for r being Real
+  P1 : for r being Real
   st 0 < r holds
   ex s being Real st
   0 < s
@@ -120,7 +120,7 @@ proof
   ||. ((f /. x1) - (f /. x2)) .|| < r
   by NFCONT_2:def 1, AS4;
 
-  LM1:
+  LM1 :
   for x be Point of E,
   seq be sequence of E
   st rng seq c= E1 & seq is convergent
@@ -132,39 +132,39 @@ proof
     let x be Point of E,
     seq be sequence of E;
     assume that
-    L1: rng seq c= E1
+    L1 : rng seq c= E1
     and
-    L2: seq is convergent;
+    L2 : seq is convergent;
     set fseq = f /* seq;
     let r being Real;
     assume
-    L3: 0 < r;
+    L3 : 0 < r;
     then
     consider s being Real such that
-    L4: 0 < s
+    L4 : 0 < s
     & for x1, x2 being Point of E
     st x1 in E1 & x2 in E1 & ||. x1 - x2 .|| < s holds
     ||. ((f /. x1) - (f /. x2)) .|| < r
     by P1;
     consider n being Nat such that
-    L5:
+    L5 :
     for m being Nat st n <= m holds
     ||. ((seq . m) - (seq . n)) .|| < s by L2, L4, LOPBAN_3: 4;
 
     take n;
     let m being Nat;
     assume
-    L6: n <= m;
+    L6 : n <= m;
     then
-    L7: ||. ((seq . m) - (seq . n)) .|| < s by L5;
-    N1: n in NAT & m in NAT by ORDINAL1:def 12;
+    L7 : ||. ((seq . m) - (seq . n)) .|| < s by L5;
+    N1 : n in NAT & m in NAT by ORDINAL1:def 12;
     then
     seq . m in rng seq & seq . n in rng seq
     by FUNCT_2: 4;
     then
     seq . m in E1 & seq . n in E1 by L1, TARSKI:def 3;
     then
-    L8: ||. f /. (seq . m) - f /. (seq . n) .|| < r by L7, L4;
+    L8 : ||. f /. (seq . m) - f /. (seq . n) .|| < r by L7, L4;
     rng seq c= dom f by L1, AS3;
     then
     f /. (seq . m) = fseq . m
@@ -175,7 +175,7 @@ proof
     ||. fseq . m - fseq . n .|| < r by L8;
   end;
 
-  LM2:
+  LM2 :
   for x be Point of E,
   seq be sequence of E
   st rng seq c= E1 & seq is convergent
@@ -184,9 +184,9 @@ proof
     let x be Point of E,
     seq be sequence of E;
     assume that
-    L9: rng seq c= E1
+    L9 : rng seq c= E1
     and
-    L10: seq is convergent;
+    L10 : seq is convergent;
     for s being Real st 0 < s holds
     ex n being Nat st
     for m being Nat st n <= m holds
@@ -198,7 +198,7 @@ proof
     hence thesis by AS2, LOPBAN_1:def 15;
   end;
 
-  LM3:
+  LM3 :
   for x be Point of E,
   seq1, seq2 be sequence of E
   st rng seq1 c= E1 & seq1 is convergent & lim seq1 = x
@@ -208,14 +208,14 @@ proof
     let x be Point of E,
     seq1, seq2 be sequence of E;
     assume that
-    LAS1: rng seq1 c= E1 & seq1 is convergent & lim seq1 = x
+    LAS1 : rng seq1 c= E1 & seq1 is convergent & lim seq1 = x
     and
-    LAS2: rng seq2 c= E1 & seq2 is convergent & lim seq2 = x;
+    LAS2 : rng seq2 c= E1 & seq2 is convergent & lim seq2 = x;
     deffunc F2 (Nat) = seq1 . $1;
     deffunc F3 (Nat) = seq2 . $1;
     consider s being sequence of the carrier of E
     such that
-    LM4: for n being Nat holds
+    LM4 : for n being Nat holds
     s . (2 * n) = F2 (n) & s . ((2 * n) + 1) = F3 (n)
     from INTEGR20:sch 1;
 
@@ -225,16 +225,16 @@ proof
       then
       consider i be object
       such that
-      P2: i in NAT & y = s . i by FUNCT_2: 11;
+      P2 : i in NAT & y = s . i by FUNCT_2: 11;
       reconsider i as Nat by P2, ORDINAL1:def 12;
       consider k be Nat such that
-      A1: i = 2 * k or i = 2 * k + 1 by INTEGR20: 14;
+      A1 : i = 2 * k or i = 2 * k + 1 by INTEGR20: 14;
       reconsider k1 = k, i1 = i as Element of NAT by ORDINAL1:def 12;
       per cases by A1;
       suppose
-        A2: i = 2 * k1;
+        A2 : i = 2 * k1;
         then
-        A3: s . i = seq1 . k1 by LM4;
+        A3 : s . i = seq1 . k1 by LM4;
         then
         s . i in rng seq1 by FUNCT_2: 4;
         hence
@@ -243,7 +243,7 @@ proof
       suppose
         i = 2 * k1 + 1;
         then
-        A4: s . i = seq2 . k1 by LM4;
+        A4 : s . i = seq2 . k1 by LM4;
         then
         s . i in rng seq2 by FUNCT_2: 4;
         hence
@@ -251,36 +251,36 @@ proof
       end;
     end;
     then
-    A5: rng s c= E1 by TARSKI:def 3;
+    A5 : rng s c= E1 by TARSKI:def 3;
 
     A4:
     now
       let p be Real;
       assume
-      A6: 0 < p;
+      A6 : 0 < p;
       then
       consider n1 be Nat such that
-      A7: for m be Nat st n1 <= m holds ||. seq1 . m - x .|| < p
+      A7 : for m be Nat st n1 <= m holds ||. seq1 . m - x .|| < p
       by LAS1, NORMSP_1:def 7;
       consider n2 be Nat such that
-      A8: for m be Nat st n2 <= m holds ||. seq2 . m - x .|| < p
+      A8 : for m be Nat st n2 <= m holds ||. seq2 . m - x .|| < p
       by A6, LAS2, NORMSP_1:def 7;
       reconsider n3 = max (n1, n2) as Nat by TARSKI: 1;
-      A9: n1 <= n3 & n2 <= n3 by XXREAL_0: 25;
+      A9 : n1 <= n3 & n2 <= n3 by XXREAL_0: 25;
       reconsider n = 2 * n3 + 1 as Nat;
       take n;
       let m be Nat;
       assume
-      A10: n <= m;
+      A10 : n <= m;
       consider k be Nat such that
-      A11: m = 2 * k or m = 2 * k + 1 by INTEGR20: 14;
+      A11 : m = 2 * k or m = 2 * k + 1 by INTEGR20: 14;
       reconsider k1 = k, m1 = m as Element of NAT by ORDINAL1:def 12;
       per cases by A11;
       suppose
-        A12: m = 2 * k1;
+        A12 : m = 2 * k1;
         then
-        A13: s . m = seq1 . k1 by LM4;
-        A14: 2 * n3 <= (2 * k) - 1 by XREAL_1: 19, A10, A12;
+        A13 : s . m = seq1 . k1 by LM4;
+        A14 : 2 * n3 <= (2 * k) - 1 by XREAL_1: 19, A10, A12;
         2 * k - 1 < (2 * k - 1) + 1 by XREAL_1: 145;
         then
         2 * n3 <= 2 * k by A14, XXREAL_0: 2;
@@ -291,9 +291,9 @@ proof
         hence ||. s . m - x .|| < p by A13, A7;
       end;
       suppose
-        A15: m = 2 * k + 1;
+        A15 : m = 2 * k + 1;
         then
-        A16: s . m1 = seq2 . k1 by LM4;
+        A16 : s . m1 = seq2 . k1 by LM4;
         (2 * n3 + 1) - 1 <= (2 * k + 1) - 1 by XREAL_1: 13, A10,
         A15;
         then
@@ -304,19 +304,19 @@ proof
       end;
     end;
     then
-    A17: s is convergent by NORMSP_1:def 6;
+    A17 : s is convergent by NORMSP_1:def 6;
     then
     lim s = x by A18, NORMSP_1:def 7;
     then
-    LM5: f /* s is convergent by A5, A17, LM2;
+    LM5 : f /* s is convergent by A5, A17, LM2;
     for i being Nat holds
     (f /* s) . (2 * i) = (f /* seq1) . i & (f /* s) . ((2 * i) + 1) = (f
     /* seq2) . i
     proof
       let i being Nat;
-      LM6: i in NAT by ORDINAL1:def 12;
-      LM7: rng s c= dom f by AS3, A5;
-      LM8: rng seq1 c= dom f & rng seq2 c= dom f by AS3, LAS1, LAS2;
+      LM6 : i in NAT by ORDINAL1:def 12;
+      LM7 : rng s c= dom f by AS3, A5;
+      LM8 : rng seq1 c= dom f & rng seq2 c= dom f by AS3, LAS1, LAS2;
       2 * i in NAT by ORDINAL1:def 12;
       hence (f /* s) . (2 * i) = f /. (s . (2 * i)) by FUNCT_2: 109,
       LM6, LM7
@@ -339,47 +339,47 @@ proof
   ex seq be sequence of E
   st rng seq c= E1 & seq is convergent & lim seq = $1
   & f /* seq is convergent & $2 = lim (f /* seq);
-  P1: for x being Element of the carrier of E
+  P1 : for x being Element of the carrier of E
   ex y being Element of the carrier of F st P1 [x, y]
   proof
     let x being Element of the carrier of E;
     consider seq being sequence of E such that
-    P3: rng seq c= E1 & seq is convergent & lim seq = x
+    P3 : rng seq c= E1 & seq is convergent & lim seq = x
     by AS1, NORMSP_3: 14;
-    P4: f /* seq is convergent by LM2, P3;
+    P4 : f /* seq is convergent by LM2, P3;
     take y = lim (f /* seq);
     thus thesis by P3, P4;
   end;
 
   consider g being Function of E, F such that
-  P5: for x being Element of E holds P1 [x, g . x]
+  P5 : for x being Element of E holds P1 [x, g . x]
   from FUNCT_2:sch 3 (P1);
 
-  P6: dom g = the carrier of E by FUNCT_2:def 1;
-  P7: dom f = (the carrier of E) /\ E1 by AS3, XBOOLE_1: 28
+  P6 : dom g = the carrier of E by FUNCT_2:def 1;
+  P7 : dom f = (the carrier of E) /\ E1 by AS3, XBOOLE_1: 28
   .= dom g /\ E1 by P6;
-  P40X1: f is_continuous_on E1 by NFCONT_2: 7, AS4;
+  P40X1 : f is_continuous_on E1 by NFCONT_2: 7, AS4;
   for x being object st x in dom f holds
   f . x = g . x
   proof
     let x0 being object;
     assume
-    P8: x0 in dom f;
+    P8 : x0 in dom f;
     then
-    P9: x0 in dom g & x0 in E1 by P7, XBOOLE_0:def 4;
+    P9 : x0 in dom g & x0 in E1 by P7, XBOOLE_0:def 4;
     then
     reconsider x = x0 as Point of E by TARSKI:def 3;
     reconsider
     seq1 = NAT --> x as sequence of E;
 
-    P43A1: for n be Nat holds seq1 . n = x
+    P43A1 : for n be Nat holds seq1 . n = x
     proof
       let n be Nat;
       n in NAT by ORDINAL1:def 12;
       hence seq1 . n = x by FUNCOP_1: 7;
     end;
     then
-    P43B1: seq1 is convergent & lim seq1 = x by NORMSP_3: 23;
+    P43B1 : seq1 is convergent & lim seq1 = x by NORMSP_3: 23;
 
     now
       let y be object;
@@ -387,32 +387,32 @@ proof
       then
       consider i be object
       such that
-      P1: i in NAT & y = seq1 . i by FUNCT_2: 11;
+      P1 : i in NAT & y = seq1 . i by FUNCT_2: 11;
       reconsider i as Nat by P1, ORDINAL1:def 12;
       seq1 . i = x by P43A1;
       hence
       y in E1 by P1, P9;
     end;
     then
-    P10: rng seq1 c= E1 by TARSKI:def 3;
+    P10 : rng seq1 c= E1 by TARSKI:def 3;
     lim seq1 in E1 by P43B1, P9;
     then
     f /* seq1 is convergent & lim f /* seq1 = f /. (lim seq1)
     by P40X1, P10, P43B1, NFCONT_1: 18;
     then
-    P11: lim f /* seq1 = f . x by P10, P43B1, PARTFUN1:def 6, P8;
+    P11 : lim f /* seq1 = f . x by P10, P43B1, PARTFUN1:def 6, P8;
     consider seq2 be sequence of E
     such that
-    P12: rng seq2 c= E1 & seq2 is convergent & lim seq2 = x
+    P12 : rng seq2 c= E1 & seq2 is convergent & lim seq2 = x
     & f /* seq2 is convergent & g . x = lim (f /* seq2)
     by P5;
     lim (f /* seq1) = lim (f /* seq2) by P10, P43B1, P12, LM3;
     hence thesis by P12, P11;
   end;
   then
-  P13: g | E1 = f by FUNCT_1: 46, P7;
+  P13 : g | E1 = f by FUNCT_1: 46, P7;
 
-  S1: for x be Point of E,
+  S1 : for x be Point of E,
   seq be sequence of E
   st rng seq c= E1 & seq is convergent
   & lim seq = x
@@ -422,12 +422,12 @@ proof
     seq be sequence of E;
 
     assume
-    S2: rng seq c= E1 & seq is convergent
+    S2 : rng seq c= E1 & seq is convergent
     & lim seq = x;
 
     consider seq1 be sequence of E
     such that
-    S3: rng seq1 c= E1 & seq1 is convergent
+    S3 : rng seq1 c= E1 & seq1 is convergent
     & lim seq1 = x
     & f /* seq1 is convergent
     & g . x = lim f /* seq1 by P5;
@@ -451,74 +451,74 @@ proof
   proof
     let r0 being Real;
     assume
-    Q1: 0 < r0;
+    Q1 : 0 < r0;
     set r1 = r0 / 2;
-    Q2: 0 < r1 & r1 < r0 by Q1, XREAL_1: 215, 216;
+    Q2 : 0 < r1 & r1 < r0 by Q1, XREAL_1: 215, 216;
     set r = r1 / 3;
-    Q3: 0 < r & r < r1 by Q2, XREAL_1: 221, 222;
+    Q3 : 0 < r & r < r1 by Q2, XREAL_1: 221, 222;
     then
     consider s0 being Real such that
-    Q4: 0 < s0
+    Q4 : 0 < s0
     &
     for x1, x2 being Point of E
     st x1 in E1 & x2 in E1
     & ||. x1 - x2 .|| < s0 holds
     ||. f /. x1 - f /. x2 .|| < r by NFCONT_2:def 1, AS4;
     set s = s0 / 3;
-    Q5: 0 < s & s < s0 by Q4, XREAL_1: 221, 222;
+    Q5 : 0 < s & s < s0 by Q4, XREAL_1: 221, 222;
     take s;
     thus 0 < s by Q5;
     let x1, x2 being Point of E;
     assume
-    Q6: x1 in the carrier of E & x2 in the carrier of E
+    Q6 : x1 in the carrier of E & x2 in the carrier of E
     & ||. x1 - x2 .|| < s;
     consider seq1 be sequence of E
     such that
-    Q7: rng seq1 c= E1 & seq1 is convergent
+    Q7 : rng seq1 c= E1 & seq1 is convergent
     & lim seq1 = x1
     & f /* seq1 is convergent
     & g . x1 = lim f /* seq1 by P5;
     consider M10 being Nat
     such that
-    Q8: for n being Nat st M10 <= n holds
+    Q8 : for n being Nat st M10 <= n holds
     ||. seq1 . n - x1 .|| < s
     by Q5, Q7, NORMSP_1:def 7;
     consider M11 being Nat
     such that
-    Q9: for n being Nat st M11 <= n holds
+    Q9 : for n being Nat st M11 <= n holds
     ||. (f /* seq1) . n - g . x1 .|| < r
     by Q3, Q7, NORMSP_1:def 7;
     set M1 = M10 + M11;
-    Q10: M10 + 0 <= M1 & M11 + 0 <= M1
+    Q10 : M10 + 0 <= M1 & M11 + 0 <= M1
     by XREAL_1: 7;
     consider seq2 be sequence of E
     such that
-    Q11: rng seq2 c= E1 & seq2 is convergent
+    Q11 : rng seq2 c= E1 & seq2 is convergent
     & lim seq2 = x2
     & f /* seq2 is convergent
     & g . x2 = lim f /* seq2 by P5;
     consider M20 being Nat
     such that
-    Q12: for n being Nat st M20 <= n holds
+    Q12 : for n being Nat st M20 <= n holds
     ||. seq2 . n - x2 .|| < s
     by Q5, Q11, NORMSP_1:def 7;
     consider M21 being Nat
     such that
-    Q13: for n being Nat st M21 <= n holds
+    Q13 : for n being Nat st M21 <= n holds
     ||. (f /* seq2) . n - g . x2 .|| < r
     by Q3, Q11, NORMSP_1:def 7;
     set M2 = M20 + M21;
-    Q14: M20 + 0 <= M2 & M21 + 0 <= M2
+    Q14 : M20 + 0 <= M2 & M21 + 0 <= M2
     by XREAL_1: 7;
     set n = M1 + M2;
-    Q15: M1 + 0 <= n & M2 + 0 <= n
+    Q15 : M1 + 0 <= n & M2 + 0 <= n
     by XREAL_1: 7;
-    W1: M10 <= n & M11 <= n by Q15, Q10, XXREAL_0: 2;
-    W2: M20 <= n & M21 <= n by Q15, Q14, XXREAL_0: 2;
-    W3: ||. seq1 . n - x1 .|| < s
+    W1 : M10 <= n & M11 <= n by Q15, Q10, XXREAL_0: 2;
+    W2 : M20 <= n & M21 <= n by Q15, Q14, XXREAL_0: 2;
+    W3 : ||. seq1 . n - x1 .|| < s
     & ||. (f /* seq1) . n - g . x1 .|| < r
     by Q8, Q9, W1;
-    W4: ||. seq2 . n - x2 .|| < s
+    W4 : ||. seq2 . n - x2 .|| < s
     & ||. (f /* seq2) . n - g . x2 .|| < r
     by Q12, Q13, W2;
     seq2 . n - seq1 . n
@@ -531,7 +531,7 @@ proof
     .= (seq2 . n - x2) + (x2 - x1) + (x1 - seq1 . n)
     by RLVECT_1: 28;
     then
-    F1: ||. seq2 . n - seq1 . n .||
+    F1 : ||. seq2 . n - seq1 . n .||
     <= ||. (seq2 . n - x2) + (x2 - x1) .|| + ||. x1 - seq1 . n .||
     by NORMSP_1:def 1;
     ||. (seq2 . n - x2) + (x2 - x1) .||
@@ -541,12 +541,12 @@ proof
     <= ||. (seq2 . n - x2) .|| + ||. x2 - x1 .|| + ||. x1 - seq1 . n .||
     by XREAL_1: 7, NORMSP_1: 4;
     then
-    F2: ||. seq2 . n - seq1 . n .||
+    F2 : ||. seq2 . n - seq1 . n .||
     <= ||. (seq2 . n - x2) .|| + ||. x2 - x1 .|| + ||. x1 - seq1 . n .||
     by F1, XXREAL_0: 2;
     ||. x2 - x1 .|| < s by Q6, NORMSP_1: 7;
     then
-    F3: ||. (seq2 . n - x2) .|| + ||. x2 - x1 .||
+    F3 : ||. (seq2 . n - x2) .|| + ||. x2 - x1 .||
     < s + s by W4, XREAL_1: 8;
     ||. x1 - seq1 . n .|| < s by W3, NORMSP_1: 7;
     then
@@ -555,15 +555,15 @@ proof
     then
     ||. seq2 . n - seq1 . n .|| < s + s + s by F2, XXREAL_0: 2;
     then
-    W5: ||. seq1 . n - seq2 . n .|| < s + s + s by NORMSP_1: 7;
-    N2: n in NAT by ORDINAL1:def 12;
+    W5 : ||. seq1 . n - seq2 . n .|| < s + s + s by NORMSP_1: 7;
+    N2 : n in NAT by ORDINAL1:def 12;
     then
     seq2 . n in rng seq2 & seq1 . n in rng seq1
     by FUNCT_2: 4;
     then
     seq2 . n in E1 & seq1 . n in E1 by Q7, Q11, TARSKI:def 3;
     then
-    W6: ||. f /. (seq1 . n) - f /. (seq2 . n) .|| < r by Q4, W5;
+    W6 : ||. f /. (seq1 . n) - f /. (seq2 . n) .|| < r by Q4, W5;
     g /. x1 - g /. x2
     = g /. x1 - f /. (seq1 . n) + f /. (seq1 . n)
     - g /. x2 by RLVECT_4: 1
@@ -577,7 +577,7 @@ proof
     + (f /. (seq1 . n) - f /. (seq2 . n))
     + (f /. (seq2 . n) - g /. x2) by RLVECT_1: 28;
     then
-    F4: ||. g /. x1 - g /. x2 .||
+    F4 : ||. g /. x1 - g /. x2 .||
     <= ||. (g /. x1 - f /. (seq1 . n))
     + (f /. (seq1 . n) - f /. (seq2 . n)) .||
     + ||. f /. (seq2 . n) - g /. x2 .|| by NORMSP_1:def 1;
@@ -596,19 +596,19 @@ proof
     + ||. f /. (seq2 . n) - g /. x2 .||
     by XREAL_1: 7;
     then
-    F5: ||. g /. x1 - g /. x2 .||
+    F5 : ||. g /. x1 - g /. x2 .||
     <= ||. g /. x1 - f /. (seq1 . n) .||
     + ||. f /. (seq1 . n) - f /. (seq2 . n) .||
     + ||. f /. (seq2 . n) - g /. x2 .|| by F4, XXREAL_0: 2;
 
-    F6: ||. g /. x1 - f /. (seq1 . n) .||
+    F6 : ||. g /. x1 - f /. (seq1 . n) .||
     = ||. f /. (seq1 . n) - g /. x1 .||
     by NORMSP_1: 7
     .= ||. f /. (seq1 . n) - g . x1 .||
     by PARTFUN1:def 6
     .= ||. (f /* seq1) . n - g . x1 .||
     by FUNCT_2: 109, Q7, AS3, N2;
-    F7: ||. f /. (seq2 . n) - g /. x2 .||
+    F7 : ||. f /. (seq2 . n) - g /. x2 .||
     = ||. (f /* seq2) . n - g . x2 .||
     by FUNCT_2: 109, Q11, AS3, N2;
     ||. g /. x1 - f /. (seq1 . n) .||
@@ -625,7 +625,7 @@ proof
     ||. g /. x1 - g /. x2 .|| < r0 by XXREAL_0: 2, Q2;
   end;
   then
-  P14: g is_uniformly_continuous_on the carrier of E
+  P14 : g is_uniformly_continuous_on the carrier of E
   by P6, NFCONT_2:def 1;
   hence
   ex g be Function of E, F
@@ -647,34 +647,34 @@ proof
   by P5, P6, P13, P14, S1;
   let g1, g2 be Function of E, F
   such that
-  P15: g1 | E1 = f
+  P15 : g1 | E1 = f
   & g1 is_continuous_on the carrier of E
   and
-  P16: g2 | E1 = f
+  P16 : g2 | E1 = f
   & g2 is_continuous_on the carrier of E;
   for x being Element of E holds g1 . x = g2 . x
   proof
     let x being Element of E;
     consider seq being sequence of E such that
-    P1: rng seq c= E1 & seq is convergent & lim seq = x
+    P1 : rng seq c= E1 & seq is convergent & lim seq = x
     by AS1, NORMSP_3: 14;
-    P5: rng seq c= the carrier of E by P1, XBOOLE_1: 1;
-    P6: lim seq in the carrier of E by P1;
-    P13: g1 /* seq is convergent & lim g1 /* seq = g1 /. (lim seq)
+    P5 : rng seq c= the carrier of E by P1, XBOOLE_1: 1;
+    P6 : lim seq in the carrier of E by P1;
+    P13 : g1 /* seq is convergent & lim g1 /* seq = g1 /. (lim seq)
     by P1, P17, P18, P15, NFCONT_1: 18;
-    P14: g2 /* seq is convergent & lim g2 /* seq = g2 /. (lim seq)
+    P14 : g2 /* seq is convergent & lim g2 /* seq = g2 /. (lim seq)
     by P1, P19, P20, P16, NFCONT_1: 18;
-    P7A1: dom (g1 | E1) = dom f by P15
+    P7A1 : dom (g1 | E1) = dom f by P15
     .= E1 by AS3;
     then
-    P7A1: rng seq c= dom (g1 | E1) by P1;
+    P7A1 : rng seq c= dom (g1 | E1) by P1;
 
-    P7B1: dom (g2 | E1) = dom f by P16
+    P7B1 : dom (g2 | E1) = dom f by P16
     .= E1 by AS3;
     then
-    P7B1: rng seq c= dom (g2 | E1) by P1;
+    P7B1 : rng seq c= dom (g2 | E1) by P1;
 
-    P21: g1 /* seq
+    P21 : g1 /* seq
     = f /* seq by FUNCT_2: 117, P7A2, P15
     .= g2 /* seq by FUNCT_2: 117, P7B2, P16;
 
@@ -690,7 +690,7 @@ proof
   g1 = g2 by FUNCT_2:def 8;
 end;
 
-theorem Th040:
+theorem Th040 :
   for E, F, G be RealNormSpace,
   f be Point of
   R_NormSpace_of_BoundedLinearOperators (E, F),
@@ -729,28 +729,28 @@ proof
 
   f is Relation;
 
-  X1: dom h = dom Lh
+  X1 : dom h = dom Lh
   .= the carrier of E by FUNCT_2:def 1;
-  X2: dom g = dom Lg
+  X2 : dom g = dom Lg
   .= the carrier of F by FUNCT_2:def 1;
   rng f = rng Lf;
   then
-  X3: rng f c= the carrier of F;
-  X4: dom f = dom Lf
+  X3 : rng f c= the carrier of F;
+  X4 : dom f = dom Lf
   .= the carrier of E by FUNCT_2:def 1;
 
-  M1: modetrans (f, E, F) = f & modetrans (g, F, G) = g
+  M1 : modetrans (f, E, F) = f & modetrans (g, F, G) = g
   by LOPBAN_1:def 11;
 
   thus
-  X1: h = Lg * Lf
+  X1 : h = Lg * Lf
   .= modetrans (g, F, G) * modetrans (f, E, F) by M1
   .= g * f;
-  S1: PreNorms (Lh)
+  S1 : PreNorms (Lh)
   = {||. Lh . t .|| where t is
   VECTOR of E: ||. t .|| <= 1}
   by LOPBAN_1:def 12;
-  F1: ||. h .|| = (BoundedLinearOperatorsNorm (E, G)) . h
+  F1 : ||. h .|| = (BoundedLinearOperatorsNorm (E, G)) . h
   by LOPBAN_1:def 14
   .= upper_bound (PreNorms (modetrans (h, E, G)))
   by LOPBAN_1:def 13
@@ -764,19 +764,19 @@ proof
     then
     consider w be Point of E
     such that
-    F2: t = ||. Lh . w .|| & ||. w .|| <= 1 by S1;
+    F2 : t = ||. Lh . w .|| & ||. w .|| <= 1 by S1;
 
     Lh . w = Lg . (Lf . w) by FUNCT_2: 15;
     then
-    F3: ||. Lh . w .|| = ||. Lg . (Lf . w) .|| by NORMSP_1:def 1;
-    F4: ||. Lf . w .|| <= ||. f .|| * ||. w .|| by LOPBAN_1: 32;
+    F3 : ||. Lh . w .|| = ||. Lg . (Lf . w) .|| by NORMSP_1:def 1;
+    F4 : ||. Lf . w .|| <= ||. f .|| * ||. w .|| by LOPBAN_1: 32;
     ||. f .|| * ||. w .|| <= ||. f .|| * 1 by F2, NORMSP_1: 4, XREAL_1:
     64;
     then
     ||. f .|| * ||. w .|| <= ||. f .||;
     then
-    F5: ||. Lf . w .|| <= ||. f .|| by XXREAL_0: 2, F4;
-    F6: ||. Lg . (Lf . w) .|| <= ||. g .|| * ||. (Lf . w) .|| by
+    F5 : ||. Lf . w .|| <= ||. f .|| by XXREAL_0: 2, F4;
+    F6 : ||. Lg . (Lf . w) .|| <= ||. g .|| * ||. (Lf . w) .|| by
     LOPBAN_1: 32;
     ||. g .|| * ||. (Lf . w) .|| <= ||. g .|| * ||. f .|| by F5,
     NORMSP_1: 4, XREAL_1: 64;
@@ -788,7 +788,7 @@ proof
   ||. h .|| <= ||. g .|| * ||. f .|| by SEQ_4: 45, F1;
 end;
 
-theorem LMCONT1:
+theorem LMCONT1 :
   for E, F be RealNormSpace,
   L be Lipschitzian LinearOperator of E, F
   holds
@@ -799,17 +799,17 @@ proof
   let E, F be RealNormSpace,
   L be Lipschitzian LinearOperator of E, F;
 
-  P1: dom L = the carrier of E by FUNCT_2:def 1;
+  P1 : dom L = the carrier of E by FUNCT_2:def 1;
   consider K being Real such that
-  LIP1:
+  LIP1 :
   0 <= K &
   for x being VECTOR of E holds ||. L . x .|| <= K * ||. x .||
   by LOPBAN_1:def 8;
 
   set r = K + 1;
-  LIP2: K + 0 < r by XREAL_1: 8;
+  LIP2 : K + 0 < r by XREAL_1: 8;
   then
-  LIP3: 0 < r by LIP1, XXREAL_0: 2;
+  LIP3 : 0 < r by LIP1, XXREAL_0: 2;
 
   set E0 = the carrier of E;
 
@@ -818,10 +818,10 @@ proof
   proof
     let x1, x2 being Point of E;
     assume
-    H1: x1 in E0 & x2 in E0;
+    H1 : x1 in E0 & x2 in E0;
 
-    H2: L /. x1 = L . x1 by H1, PARTFUN1:def 6;
-    H3: L /. x2 = L . x2 by H1, PARTFUN1:def 6;
+    H2 : L /. x1 = L . x1 by H1, PARTFUN1:def 6;
+    H3 : L /. x2 = L . x2 by H1, PARTFUN1:def 6;
     then
     L /. x1 - L /. x2 = L . x1 + - L . x2 by RLVECT_1:def 11
     .= L . x1 + (- 1) * (L . x2) by RLVECT_1: 16
@@ -832,7 +832,7 @@ proof
     .= L . (x1 - x2) by RLVECT_1:def 11;
 
     then
-    H4: ||. L /. x1 - L /. x2 .|| <= K * ||. x1 - x2 .|| by LIP1;
+    H4 : ||. L /. x1 - L /. x2 .|| <= K * ||. x1 - x2 .|| by LIP1;
 
     K * ||. x1 - x2 .|| <= r * ||. x1 - x2 .||
     by LIP2, NORMSP_1: 4, XREAL_1: 64;
@@ -841,10 +841,10 @@ proof
   hence
   L is_Lipschitzian_on E0 by P1, LIP3, NFCONT_1:def 9;
   hence
-  P2: L is_uniformly_continuous_on E0 by NFCONT_2: 9;
+  P2 : L is_uniformly_continuous_on E0 by NFCONT_2: 9;
 end;
 
-theorem Th050:
+theorem Th050 :
   for E, F be RealNormSpace,
   E1 be SubRealNormSpace of E,
   f be Point of
@@ -890,16 +890,16 @@ proof
   f be Point of
   R_NormSpace_of_BoundedLinearOperators (E1, F);
   assume that
-  AS1: F is complete
+  AS1 : F is complete
   and
-  AS2: ex E0 be Subset of E
+  AS2 : ex E0 be Subset of E
   st E0 = the carrier of E1
   &
   E0 is dense;
 
   consider E0 be Subset of E
   such that
-  AS3: E0 = the carrier of E1
+  AS3 : E0 = the carrier of E1
   &
   E0 is dense by AS2;
 
@@ -907,7 +907,7 @@ proof
   Lipschitzian LinearOperator of E1, F by LOPBAN_1:def 9;
   L is Function of the carrier of E1, the carrier of F;
   then
-  D1: dom L = the carrier of E1 & rng L c= the carrier of F
+  D1 : dom L = the carrier of E1 & rng L c= the carrier of F
   by FUNCT_2:def 1;
   then
   dom L c= the carrier of E & rng L c= the carrier of F
@@ -918,37 +918,37 @@ proof
   then
   reconsider Lf = L as PartFunc of E, F
   by PARTFUN1: 46;
-  P1: dom Lf = E0 by AS3, FUNCT_2:def 1;
+  P1 : dom Lf = E0 by AS3, FUNCT_2:def 1;
 
   consider K being Real such that
-  LIP1:
+  LIP1 :
   0 <= K &
   for x being VECTOR of E1 holds ||. L . x .|| <= K * ||. x .||
   by LOPBAN_1:def 8;
 
   set r = K + 1;
-  LIP2: K + 0 < r by XREAL_1: 8;
+  LIP2 : K + 0 < r by XREAL_1: 8;
   then
-  LIP3: 0 < r by LIP1, XXREAL_0: 2;
+  LIP3 : 0 < r by LIP1, XXREAL_0: 2;
 
   for x1, x2 being Point of E st x1 in E0 & x2 in E0 holds
   ||. Lf /. x1 - Lf /. x2 .|| <= r * ||. x1 - x2 .||
   proof
     let x1, x2 being Point of E;
     assume
-    H1: x1 in E0 & x2 in E0;
+    H1 : x1 in E0 & x2 in E0;
     then
     reconsider xx1 = x1, xx2 = x2 as Point of E1 by AS3;
-    H2X1: (- 1) * x2 = (- 1) * xx2 by NORMSP_3: 28;
-    H2: x1 - x2 = x1 + - x2 by RLVECT_1:def 11
+    H2X1 : (- 1) * x2 = (- 1) * xx2 by NORMSP_3: 28;
+    H2 : x1 - x2 = x1 + - x2 by RLVECT_1:def 11
     .= x1 + (- 1) * x2 by RLVECT_1: 16
     .= xx1 + (- 1) * xx2 by NORMSP_3: 28, H2X1
     .= xx1 + - xx2 by RLVECT_1: 16
     .= xx1 - xx2 by RLVECT_1:def 11;
 
-    H3: Lf /. x1 = L . x1 by AS3, D1, H1, PARTFUN1:def 6
+    H3 : Lf /. x1 = L . x1 by AS3, D1, H1, PARTFUN1:def 6
     .= L . xx1;
-    H4: Lf /. x2 = L . x2 by AS3, D1, H1, PARTFUN1:def 6
+    H4 : Lf /. x2 = L . x2 by AS3, D1, H1, PARTFUN1:def 6
     .= L . xx2;
 
     then
@@ -964,7 +964,7 @@ proof
     then
     ||. Lf /. x1 - Lf /. x2 .|| <= K * ||. xx1 - xx2 .|| by LIP1;
     then
-    H5: ||. Lf /. x1 - Lf /. x2 .|| <= K * ||. x1 - x2 .||
+    H5 : ||. Lf /. x1 - Lf /. x2 .|| <= K * ||. x1 - x2 .||
     by H2, NORMSP_3: 28;
 
     K * ||. x1 - x2 .|| <= r * ||. x1 - x2 .||
@@ -974,8 +974,8 @@ proof
   then
   Lf is_Lipschitzian_on E0 by P1, LIP3, NFCONT_1:def 9;
   then
-  P2: Lf is_uniformly_continuous_on E0 by NFCONT_2: 9;
-  P3: (ex Pg be Function of E, F
+  P2 : Lf is_uniformly_continuous_on E0 by NFCONT_2: 9;
+  P3 : (ex Pg be Function of E, F
   st
   Pg | E0 = Lf
   & Pg is_uniformly_continuous_on the carrier of E
@@ -1004,18 +1004,18 @@ proof
 
   consider Pg be Function of E, F
   such that
-  P4: Pg | E0 = Lf
+  P4 : Pg | E0 = Lf
   and
-  P5: Pg is_uniformly_continuous_on the carrier of E
+  P5 : Pg is_uniformly_continuous_on the carrier of E
   and
-  P6: for x be Point of E
+  P6 : for x be Point of E
   holds ex seq be sequence of E
   st rng seq c= E0 & seq is convergent
   & lim seq = x
   & Lf /* seq is convergent
   & Pg . x = lim Lf /* seq
   and
-  P7: for x be Point of E,
+  P7 : for x be Point of E,
   seq be sequence of E
   st rng seq c= E0 & seq is convergent
   & lim seq = x
@@ -1023,14 +1023,14 @@ proof
   Pg . x = lim Lf /* seq
 
   and
-  V1: for x be Point of E
+  V1 : for x be Point of E
   holds ex seq be sequence of E
   st rng seq c= E0 & seq is convergent
   & lim seq = x
   & Lf /* seq is convergent
   & Pg . x = lim Lf /* seq
   and
-  V2: for x be Point of E,
+  V2 : for x be Point of E,
   seq be sequence of E
   st rng seq c= E0 & seq is convergent
   & lim seq = x
@@ -1039,14 +1039,14 @@ proof
 
   by P3;
 
-  H6: for x, y be Point of E
+  H6 : for x, y be Point of E
   holds Pg . (x + y) = Pg . x + Pg . y
   proof
     let x, y be Point of E;
     consider
     xseq be sequence of E
     such that
-    H7: rng xseq c= E0 & xseq is convergent
+    H7 : rng xseq c= E0 & xseq is convergent
     & lim xseq = x
     & Lf /* xseq is convergent
     & Pg . x = lim Lf /* xseq by P6;
@@ -1054,7 +1054,7 @@ proof
     consider
     yseq be sequence of E
     such that
-    H8: rng yseq c= E0 & yseq is convergent
+    H8 : rng yseq c= E0 & yseq is convergent
     & lim yseq = y
     & Lf /* yseq is convergent
     & Pg . y = lim Lf /* yseq by P6;
@@ -1065,16 +1065,16 @@ proof
       then
       consider n be Element of NAT
       such that
-      H9: y = (xseq + yseq) . n
+      H9 : y = (xseq + yseq) . n
       by FUNCT_2: 113;
-      H10: (xseq + yseq) . n = xseq . n + yseq . n by NORMSP_1:def 2;
+      H10 : (xseq + yseq) . n = xseq . n + yseq . n by NORMSP_1:def 2;
 
       xseq . n in rng xseq
       &
       yseq . n in rng yseq
       by FUNCT_2: 4;
       then
-      N1: xseq . n in E0
+      N1 : xseq . n in E0
       &
       yseq . n in E0
       by H7, H8, TARSKI:def 3;
@@ -1094,27 +1094,27 @@ proof
       y in E0 by H9, H10;
     end;
     then
-    H11: rng (xseq + yseq) c= E0 by TARSKI:def 3;
-    H12: xseq + yseq is convergent
+    H11 : rng (xseq + yseq) c= E0 by TARSKI:def 3;
+    H12 : xseq + yseq is convergent
     by H7, H8, NORMSP_1: 19;
-    H13: lim (xseq + yseq) = x + y by H7, H8, NORMSP_1: 25;
-    K1: rng (xseq + yseq) c= dom Lf by P1, H11;
-    K2: rng xseq c= dom Lf by H7, P1;
-    K3: rng yseq c= dom Lf by H8, P1;
+    H13 : lim (xseq + yseq) = x + y by H7, H8, NORMSP_1: 25;
+    K1 : rng (xseq + yseq) c= dom Lf by P1, H11;
+    K2 : rng xseq c= dom Lf by H7, P1;
+    K3 : rng yseq c= dom Lf by H8, P1;
 
     for n be Nat
     holds (Lf /* (xseq + yseq)) . n
     = (Lf /* xseq) . n + (Lf /* yseq) . n
     proof
       let n be Nat;
-      N2: n in NAT by ORDINAL1:def 12;
+      N2 : n in NAT by ORDINAL1:def 12;
 
       xseq . n in rng xseq
       &
       yseq . n in rng yseq
       by N2, FUNCT_2: 4;
       then
-      N3: xseq . n in E0
+      N3 : xseq . n in E0
       &
       yseq . n in E0
       by H7, H8, TARSKI:def 3;
@@ -1125,11 +1125,11 @@ proof
       then
       reconsider xn = xseq . n, yn = yseq . n
       as Point of E1;
-      N4: xseq . n + yseq . n = xn + yn by NORMSP_3: 28;
+      N4 : xseq . n + yseq . n = xn + yn by NORMSP_3: 28;
       then
-      N5: xseq . n + yseq . n in the carrier of E1;
+      N5 : xseq . n + yseq . n in the carrier of E1;
       then
-      N6: xseq . n + yseq . n in dom L by FUNCT_2:def 1;
+      N6 : xseq . n + yseq . n in dom L by FUNCT_2:def 1;
 
       thus (Lf /* (xseq + yseq)) . n
       = Lf /. ((xseq + yseq) . n)
@@ -1150,10 +1150,10 @@ proof
       by N2, FUNCT_2: 109, K3;
     end;
     then
-    H14: Lf /* (xseq + yseq) = Lf /* xseq + Lf /* yseq
+    H14 : Lf /* (xseq + yseq) = Lf /* xseq + Lf /* yseq
     by NORMSP_1:def 2;
 
-    H15: lim Lf /* (xseq + yseq)
+    H15 : lim Lf /* (xseq + yseq)
     = lim (Lf /* xseq + Lf /* yseq) by H14
     .= lim Lf /* xseq + lim Lf /* yseq
     by H7, H8, NORMSP_1: 25;
@@ -1173,7 +1173,7 @@ proof
     consider
     xseq be sequence of E
     such that
-    H16: rng xseq c= E0 & xseq is convergent
+    H16 : rng xseq c= E0 & xseq is convergent
     & lim xseq = x
     & Lf /* xseq is convergent
     & Pg . x = lim Lf /* xseq by P6;
@@ -1184,14 +1184,14 @@ proof
       then
       consider n be Element of NAT
       such that
-      H17: y = (a * xseq) . n
+      H17 : y = (a * xseq) . n
       by FUNCT_2: 113;
-      H18: (a * xseq) . n = a * xseq . n by NORMSP_1:def 5;
+      H18 : (a * xseq) . n = a * xseq . n by NORMSP_1:def 5;
 
       xseq . n in rng xseq
       by FUNCT_2: 4;
       then
-      N7: xseq . n in E0
+      N7 : xseq . n in E0
       by H16, TARSKI:def 3;
       then
       xseq . n in the carrier of E1 by AS3;
@@ -1207,35 +1207,35 @@ proof
       y in E0 by H17, H18;
     end;
     then
-    H19: rng (a * xseq) c= E0 by TARSKI:def 3;
-    H20: a * xseq is convergent
+    H19 : rng (a * xseq) c= E0 by TARSKI:def 3;
+    H20 : a * xseq is convergent
     by H16, NORMSP_1: 22;
-    H21: lim (a * xseq) = a * x by H16, NORMSP_1: 28;
-    K4: rng (a * xseq) c= dom Lf by P1, H19;
-    K5: rng xseq c= dom Lf by H16, P1;
+    H21 : lim (a * xseq) = a * x by H16, NORMSP_1: 28;
+    K4 : rng (a * xseq) c= dom Lf by P1, H19;
+    K5 : rng xseq c= dom Lf by H16, P1;
 
     for n be Nat
     holds (Lf /* (a * xseq)) . n
     = a * (Lf /* xseq) . n
     proof
       let n be Nat;
-      N8: n in NAT by ORDINAL1:def 12;
+      N8 : n in NAT by ORDINAL1:def 12;
 
       xseq . n in rng xseq
       by N8, FUNCT_2: 4;
       then
-      N9: xseq . n in E0
+      N9 : xseq . n in E0
       by H16, TARSKI:def 3;
       then
       xseq . n in the carrier of E1 by AS3;
       then
       reconsider xn = xseq . n
       as Point of E1;
-      N10: a * xseq . n = a * xn by NORMSP_3: 28;
+      N10 : a * xseq . n = a * xn by NORMSP_3: 28;
       then
-      N11: a * xseq . n in the carrier of E1;
+      N11 : a * xseq . n in the carrier of E1;
       then
-      N12: a * xseq . n in dom L by FUNCT_2:def 1;
+      N12 : a * xseq . n in dom L by FUNCT_2:def 1;
 
       thus (Lf /* ((a * xseq))) . n
       = Lf /. (((a * xseq)) . n)
@@ -1253,10 +1253,10 @@ proof
       by N8, FUNCT_2: 109, K5;
     end;
     then
-    H22: Lf /* ((a * xseq)) = a * (Lf /* xseq)
+    H22 : Lf /* ((a * xseq)) = a * (Lf /* xseq)
     by NORMSP_1:def 5;
 
-    H23: lim Lf /* ((a * xseq))
+    H23 : lim Lf /* ((a * xseq))
     = lim (a * (Lf /* xseq)) by H22
     .= a * lim Lf /* xseq
     by H16, NORMSP_1: 28;
@@ -1282,26 +1282,26 @@ proof
   R_NormSpace_of_BoundedLinearOperators (E, F)
   by LOPBAN_1:def 9;
 
-  P8: dom g = the carrier of E by FUNCT_2:def 1;
-  P9: g | the carrier of E1 = Pg | E0 by AS3
+  P8 : dom g = the carrier of E by FUNCT_2:def 1;
+  P9 : g | the carrier of E1 = Pg | E0 by AS3
   .= Lf by P4
   .= f;
 
-  FS1: PreNorms (L)
+  FS1 : PreNorms (L)
   = {||. L . t .|| where t is
   VECTOR of E1: ||. t .|| <= 1}
   by LOPBAN_1:def 12;
-  FF1: ||. f .|| = (BoundedLinearOperatorsNorm (E1, F)) . f
+  FF1 : ||. f .|| = (BoundedLinearOperatorsNorm (E1, F)) . f
   by LOPBAN_1:def 14
   .= upper_bound (PreNorms (modetrans (f, E1, F)))
   by LOPBAN_1:def 13
   .= upper_bound PreNorms (L) by LOPBAN_1: 29;
 
-  GS1: PreNorms (Pg)
+  GS1 : PreNorms (Pg)
   = {||. Pg . t .|| where t is
   VECTOR of E: ||. t .|| <= 1}
   by LOPBAN_1:def 12;
-  GF1: ||. g .|| = (BoundedLinearOperatorsNorm (E, F)) . g
+  GF1 : ||. g .|| = (BoundedLinearOperatorsNorm (E, F)) . g
   by LOPBAN_1:def 14
   .= upper_bound (PreNorms (modetrans (g, E, F)))
   by LOPBAN_1:def 13
@@ -1316,23 +1316,23 @@ proof
     then
     consider w be Point of E1
     such that
-    F1: t = ||. L . w .|| & ||. w .|| <= 1
+    F1 : t = ||. L . w .|| & ||. w .|| <= 1
     by FS1;
 
-    H24:
+    H24 :
     the carrier of E1 c= the carrier of E
     by DUALSP01:def 16;
 
-    G1: w in the carrier of E1;
+    G1 : w in the carrier of E1;
     then
     w in the carrier of E by H24, TARSKI:def 3;
     then
     reconsider w1 = w as Point of E;
     ||. w1 .|| = ||. w .|| by NORMSP_3: 28;
     then
-    F2: ||. w1 .|| <= 1 by F1;
+    F2 : ||. w1 .|| <= 1 by F1;
 
-    F3: not PreNorms (Pg) is empty
+    F3 : not PreNorms (Pg) is empty
     & PreNorms (Pg) is bounded_above
     by LOPBAN_1: 27;
     w1 in E0 by G1, AS3;
@@ -1345,7 +1345,7 @@ proof
 
   end;
   then
-  P10X1: ||. f .|| <= ||. g .|| by SEQ_4: 45, FF1;
+  P10X1 : ||. f .|| <= ||. g .|| by SEQ_4: 45, FF1;
 
   for t be Real
   st t in PreNorms (Pg)
@@ -1356,47 +1356,47 @@ proof
     then
     consider x be Point of E
     such that
-    H6: t = ||. Pg . x .||
+    H6 : t = ||. Pg . x .||
     & ||. x .|| <= 1 by GS1;
 
     consider
     xseq be sequence of E
     such that
-    H25: rng xseq c= E0 & xseq is convergent
+    H25 : rng xseq c= E0 & xseq is convergent
     & lim xseq = x
     & Lf /* xseq is convergent
     & Pg . x = lim Lf /* xseq by P6;
 
-    H26: ||. Pg . x .|| = ||. lim Lf /* xseq .|| by H25
+    H26 : ||. Pg . x .|| = ||. lim Lf /* xseq .|| by H25
     .= lim ||. Lf /* xseq .||
     by H25, LOPBAN_1: 20;
-    H27: ||. xseq .|| is convergent
+    H27 : ||. xseq .|| is convergent
     & lim ||. xseq .|| = ||. lim xseq .||
     by LOPBAN_1: 20, H25;
-    H28: ||. Lf /* xseq .|| is convergent
+    H28 : ||. Lf /* xseq .|| is convergent
     by NORMSP_1: 23, H25;
 
-    H29: ||. f .|| (#) ||. xseq .|| is convergent
+    H29 : ||. f .|| (#) ||. xseq .|| is convergent
     by SEQ_2: 7, H27;
-    H30: for n be Nat holds
+    H30 : for n be Nat holds
     ||. Lf /* xseq .|| . n <= (||. f .|| (#) ||. xseq .||) . n
     proof
       let n be Nat;
-      N13: n in NAT by ORDINAL1:def 12;
-      K6: rng xseq c= dom Lf by H25, P1;
+      N13 : n in NAT by ORDINAL1:def 12;
+      K6 : rng xseq c= dom Lf by H25, P1;
       xseq . n in rng xseq
       by N13, FUNCT_2: 4;
       then
-      N14: xseq . n in E0
+      N14 : xseq . n in E0
       by H25, TARSKI:def 3;
       then
       xseq . n in the carrier of E1 by AS3;
       then
       reconsider xn = xseq . n
       as Point of E1;
-      D1: dom Lf = the carrier of E1 by FUNCT_2:def 1;
+      D1 : dom Lf = the carrier of E1 by FUNCT_2:def 1;
 
-      X1: ||. Lf /* xseq .|| . n = ||. (Lf /* xseq) . n .||
+      X1 : ||. Lf /* xseq .|| . n = ||. (Lf /* xseq) . n .||
       by NORMSP_0:def 4
       .= ||. Lf /. (xseq . n) .||
       by FUNCT_2: 109, N13, K6
@@ -1423,7 +1423,7 @@ proof
     lim ||. Lf /* xseq .|| <= ||. f .|| * lim ||. xseq .||
     by SEQ_2: 8, H27;
     then
-    H28: lim ||. Lf /* xseq .|| <= ||. f .|| * ||. x .|| by H27, H25;
+    H28 : lim ||. Lf /* xseq .|| <= ||. f .|| * ||. x .|| by H27, H25;
 
     ||. f .|| * ||. x .|| <= ||. f .|| * 1
     by H31, XREAL_1: 64, NORMSP_1: 4;
@@ -1437,7 +1437,7 @@ proof
   ||. g .|| <= ||. f .|| by SEQ_4: 45, GF1;
 
   then
-  P10: ||. g .|| = ||. f .|| by P10X1, XXREAL_0: 1;
+  P10 : ||. g .|| = ||. f .|| by P10X1, XXREAL_0: 1;
   thus
   ex g be Point of
   R_NormSpace_of_BoundedLinearOperators (E, F)
@@ -1475,7 +1475,7 @@ proof
     let g1, g2 be Point of
     R_NormSpace_of_BoundedLinearOperators (E, F);
     assume
-    H6: g1 | the carrier of E1 = f
+    H6 : g1 | the carrier of E1 = f
     & g2 | the carrier of E1 = f;
 
     reconsider Pg1 = g1, Pg2 = g2
@@ -1485,14 +1485,14 @@ proof
     Pg1 is_uniformly_continuous_on the carrier of E
     by LMCONT1;
     then
-    H34: Pg1 is_continuous_on the carrier of E
+    H34 : Pg1 is_continuous_on the carrier of E
     by NFCONT_2: 7;
     Pg2 is_uniformly_continuous_on the carrier of E
     by LMCONT1;
     then
-    H35: Pg2 is_continuous_on the carrier of E
+    H35 : Pg2 is_continuous_on the carrier of E
     by NFCONT_2: 7;
-    H36: Pg1 | E0 = Lf by H37, AS3;
+    H36 : Pg1 | E0 = Lf by H37, AS3;
     Pg2 | E0 = Lf by H38, AS3;
     then
     Pg1 = Pg2 by P3, H34, H35, H36;
@@ -1500,7 +1500,7 @@ proof
   end;
 end;
 
-theorem LM1:
+theorem LM1 :
   for E, F, G be non empty set,
   f be Function of [: E, F :], G
   holds
@@ -1511,7 +1511,7 @@ proof
   let E, F, G be non empty set,
   f be Function of [: E, F :], G;
 
-  P1: dom f = [: E, F :] by FUNCT_2:def 1;
+  P1 : dom f = [: E, F :] by FUNCT_2:def 1;
   for x be object
   holds
   x in proj1 (dom f) iff x in E
@@ -1521,17 +1521,17 @@ proof
       assume x in proj1 (dom f);
       then
       consider y being object such that
-      P2: [x, y] in (dom f)
+      P2 : [x, y] in (dom f)
       by XTUPLE_0:def 12;
 
       [x, y] in [: E, F :] by P1, P2;
       hence x in E by ZFMISC_1: 87;
     end;
     assume
-    P3: x in E;
+    P3 : x in E;
     consider y be object
     such that
-    P4: y in F by XBOOLE_0:def 1;
+    P4 : y in F by XBOOLE_0:def 1;
     [x, y] in [: E, F :] by ZFMISC_1: 87, P3, P4;
     then
     [x, y] in (dom f) by P1;
@@ -1553,17 +1553,17 @@ proof
       assume y in proj2 (dom f);
       then
       consider x being object such that
-      P5: [x, y] in (dom f)
+      P5 : [x, y] in (dom f)
       by XTUPLE_0:def 13;
 
       [x, y] in [: E, F :] by P1, P5;
       hence y in F by ZFMISC_1: 87;
     end;
     assume
-    P6: y in F;
+    P6 : y in F;
     consider x be object
     such that
-    P7: x in E by XBOOLE_0:def 1;
+    P7 : x in E by XBOOLE_0:def 1;
     [x, y] in [: E, F :] by ZFMISC_1: 87, P6, P7;
     then
     [x, y] in (dom f) by P1;
@@ -1577,7 +1577,7 @@ proof
   dom (curry' f) = F by FUNCT_5: 23;
 end;
 
-theorem LM2:
+theorem LM2 :
   for E, F, G be non empty set,
   f be Function of [: E, F :], G,
   x be object
@@ -1589,12 +1589,12 @@ proof
   f be Function of [: E, F :], G,
   x be object;
   assume
-  A1: x in E;
-  A2: [: E, F :] <> {} by ZFMISC_1: 90;
-  A3: dom f = [: E, F :] by FUNCT_2:def 1;
+  A1 : x in E;
+  A2 : [: E, F :] <> {} by ZFMISC_1: 90;
+  A3 : dom f = [: E, F :] by FUNCT_2:def 1;
   then
   consider g being Function such that
-  A4: (curry f) . x = g
+  A4 : (curry f) . x = g
   & dom g = F
   & rng g c= rng f
   & for y being object st y in F holds
@@ -1608,7 +1608,7 @@ proof
   (curry f) . x is Function of F, G by A4;
 end;
 
-theorem LM3:
+theorem LM3 :
   for E, F, G be non empty set,
   f be Function of [: E, F :], G,
   y be object
@@ -1620,12 +1620,12 @@ proof
   f be Function of [: E, F :], G,
   y be object;
   assume
-  A1: y in F;
-  A2: [: E, F :] <> {} by ZFMISC_1: 90;
-  A3: dom f = [: E, F :] by FUNCT_2:def 1;
+  A1 : y in F;
+  A2 : [: E, F :] <> {} by ZFMISC_1: 90;
+  A3 : dom f = [: E, F :] by FUNCT_2:def 1;
   then
   consider g being Function such that
-  A4: (curry' f) . y = g
+  A4 : (curry' f) . y = g
   & dom g = E
   & rng g c= rng f
   & for x being object st x in E holds
@@ -1639,7 +1639,7 @@ proof
   (curry' f) . y is Function of E, G by A4;
 end;
 
-theorem LM4:
+theorem LM4 :
   for E, F, G be non empty set,
   f be Function of [: E, F :], G,
   x, y be object
@@ -1652,14 +1652,14 @@ proof
   f be Function of [: E, F :], G,
   x, y be object;
   assume that
-  AS1: x in E and
-  AS2: y in F;
+  AS1 : x in E and
+  AS2 : y in F;
 
-  A1: [: E, F :] <> {} by ZFMISC_1: 90;
-  A2: dom f = [: E, F :] by FUNCT_2:def 1;
+  A1 : [: E, F :] <> {} by ZFMISC_1: 90;
+  A2 : dom f = [: E, F :] by FUNCT_2:def 1;
   then
   consider g being Function such that
-  A3: (curry f) . x = g
+  A3 : (curry f) . x = g
   & dom g = F
   & rng g c= rng f
   & for y being object st y in F holds
@@ -1668,7 +1668,7 @@ proof
   ((curry f) . x) . y = f . (x, y) by A3, AS2;
 end;
 
-theorem LM5:
+theorem LM5 :
   for E, F, G be non empty set,
   f be Function of [: E, F :], G,
   x, y be object
@@ -1681,14 +1681,14 @@ proof
   f be Function of [: E, F :], G,
   x, y be object;
   assume that
-  AS1: x in E and
-  AS2: y in F;
+  AS1 : x in E and
+  AS2 : y in F;
 
-  A1: [: E, F :] <> {} by ZFMISC_1: 90;
-  A2: dom f = [: E, F :] by FUNCT_2:def 1;
+  A1 : [: E, F :] <> {} by ZFMISC_1: 90;
+  A2 : dom f = [: E, F :] by FUNCT_2:def 1;
   then
   consider g being Function such that
-  A3: (curry' f) . y = g
+  A3 : (curry' f) . y = g
   & dom g = E
   & rng g c= rng f
   & for x being object st x in E holds
@@ -1704,7 +1704,7 @@ definition
   let f be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G;
-  attr f is Bilinear means:DefBilinear:
+  attr f is Bilinear means: DefBilinear :
   (for v being Point of E
   st v in dom (curry f)
   holds (curry f) . v is additive homogeneous
@@ -1716,7 +1716,7 @@ definition
   Function of E, G);
 end;
 
-theorem EX1:
+theorem EX1 :
   for E, F, G be RealLinearSpace
   holds
   ([: the carrier of E, the carrier of F :])
@@ -1730,9 +1730,9 @@ proof
   f = ([: the carrier of E, the carrier of F :])
   --> 0. G;
 
-  X1: the carrier of [: E, F :]
+  X1 : the carrier of [: E, F :]
   = [: the carrier of E, the carrier of F :];
-  P1:
+  P1 :
   for x being Point of E
   st x in dom (curry f)
   holds (curry f) . x is additive homogeneous
@@ -1740,37 +1740,37 @@ proof
   proof
     let x being Point of E;
     assume
-    P2: x in dom (curry f);
-    P3: dom (curry f) = the carrier of E
+    P2 : x in dom (curry f);
+    P3 : dom (curry f) = the carrier of E
     by LM1, P2;
     then
     reconsider L = (curry f) . x as
     Function of the carrier of F, the carrier of G
     by LM2, P2;
-    X2: for y1, y2 be Point of F
+    X2 : for y1, y2 be Point of F
     holds L . (y1 + y2) = L . y1 + L . y2
     proof
       let y1, y2 be Point of F;
-      X3: y1 in the carrier of F
+      X3 : y1 in the carrier of F
       &
       y2 in the carrier of F
       &
       y1 + y2 in the carrier of F;
-      X4: x in the carrier of E by P2, P3;
-      Z1: [x, y1 + y2] in
+      X4 : x in the carrier of E by P2, P3;
+      Z1 : [x, y1 + y2] in
       [: the carrier of E, the carrier of F :]
       by X3, X4, ZFMISC_1: 87;
-      Z2: [x, y1] in
+      Z2 : [x, y1] in
       [: the carrier of E, the carrier of F :]
       by X3, X4, ZFMISC_1: 87;
-      Z3: [x, y2] in
+      Z3 : [x, y2] in
       [: the carrier of E, the carrier of F :]
       by X3, X4, ZFMISC_1: 87;
-      X5: L . (y1 + y2) = f . (x, y1 + y2) by LM4, X3, X4
+      X5 : L . (y1 + y2) = f . (x, y1 + y2) by LM4, X3, X4
       .= 0. G by X1, Z1, FUNCOP_1: 7;
-      X6: L . y1 = f . (x, y1) by LM4, X3, X4
+      X6 : L . y1 = f . (x, y1) by LM4, X3, X4
       .= 0. G by X1, Z2, FUNCOP_1: 7;
-      X7: L . y2 = f . (x, y2) by LM4, X3, X4
+      X7 : L . y2 = f . (x, y2) by LM4, X3, X4
       .= 0. G by X1, Z3, FUNCOP_1: 7;
       hence
       L . (y1 + y2) = L . y1 + L . y2 by X5, X6, X7, RLVECT_1: 4;
@@ -1780,20 +1780,20 @@ proof
     holds L . (a * y) = a * L . y
     proof
       let y be Point of F, a be Real;
-      X8: y in the carrier of F
+      X8 : y in the carrier of F
       &
       a * y in the carrier of F;
-      X9: x in the carrier of E by P2, P3;
-      Z4: [x, a * y] in
+      X9 : x in the carrier of E by P2, P3;
+      Z4 : [x, a * y] in
       [: the carrier of E, the carrier of F :]
       by X8, X9, ZFMISC_1: 87;
-      Z5: [x, y] in
+      Z5 : [x, y] in
       [: the carrier of E, the carrier of F :]
       by X8, X9, ZFMISC_1: 87;
 
-      X10: L . (a * y) = f . (x, a * y) by LM4, X8, X9
+      X10 : L . (a * y) = f . (x, a * y) by LM4, X8, X9
       .= 0. G by X1, Z4, FUNCOP_1: 7;
-      X11: L . y = f . (x, y) by LM4, X8, X9
+      X11 : L . y = f . (x, y) by LM4, X8, X9
       .= 0. G by X1, Z5, FUNCOP_1: 7;
       hence
       L . (a * y) = a * L . y by X10, X11, RLVECT_1: 10;
@@ -1810,38 +1810,38 @@ proof
   proof
     let x being Point of F;
     assume
-    P4: x in dom (curry' f);
-    P5: dom (curry' f) = the carrier of F
+    P4 : x in dom (curry' f);
+    P5 : dom (curry' f) = the carrier of F
     by LM1, P4;
     then
     reconsider L = (curry' f) . x as
     Function of the carrier of E, the carrier of G
     by LM3, P4;
 
-    X12: for y1, y2 be Point of E
+    X12 : for y1, y2 be Point of E
     holds L . (y1 + y2) = L . y1 + L . y2
     proof
       let y1, y2 be Point of E;
-      X13: y1 in the carrier of E
+      X13 : y1 in the carrier of E
       &
       y2 in the carrier of E
       &
       y1 + y2 in the carrier of E;
-      X14: x in the carrier of F by P4, P5;
-      Z6: [y1 + y2, x] in
+      X14 : x in the carrier of F by P4, P5;
+      Z6 : [y1 + y2, x] in
       [: the carrier of E, the carrier of F :]
       by X13, X14, ZFMISC_1: 87;
-      Z7: [y1, x] in
+      Z7 : [y1, x] in
       [: the carrier of E, the carrier of F :]
       by X13, X14, ZFMISC_1: 87;
-      Z8: [y2, x] in
+      Z8 : [y2, x] in
       [: the carrier of E, the carrier of F :]
       by X13, X14, ZFMISC_1: 87;
-      X15: L . (y1 + y2) = f . (y1 + y2, x) by LM5, X13, X14
+      X15 : L . (y1 + y2) = f . (y1 + y2, x) by LM5, X13, X14
       .= 0. G by X1, Z6, FUNCOP_1: 7;
-      X16: L . y1 = f . (y1, x) by LM5, X13, X14
+      X16 : L . y1 = f . (y1, x) by LM5, X13, X14
       .= 0. G by X1, Z7, FUNCOP_1: 7;
-      X17: L . y2 = f . (y2, x) by LM5, X13, X14
+      X17 : L . y2 = f . (y2, x) by LM5, X13, X14
       .= 0. G by X1, Z8, FUNCOP_1: 7;
       hence
       L . (y1 + y2) = L . y1 + L . y2 by X15, X16, X17, RLVECT_1: 4;
@@ -1851,20 +1851,20 @@ proof
     holds L . (a * y) = a * L . y
     proof
       let y be Point of E, a be Real;
-      X18: y in the carrier of E
+      X18 : y in the carrier of E
       &
       a * y in the carrier of E;
-      X19: x in the carrier of F by P4, P5;
-      Z9: [a * y, x] in
+      X19 : x in the carrier of F by P4, P5;
+      Z9 : [a * y, x] in
       [: the carrier of E, the carrier of F :]
       by X18, X19, ZFMISC_1: 87;
-      Z10: [y, x] in
+      Z10 : [y, x] in
       [: the carrier of E, the carrier of F :]
       by X18, X19, ZFMISC_1: 87;
 
-      X20: L . (a * y) = f . (a * y, x) by LM5, X18, X19
+      X20 : L . (a * y) = f . (a * y, x) by LM5, X18, X19
       .= 0. G by X1, Z9, FUNCOP_1: 7;
-      X21: L . y = f . (y, x) by LM5, X18, X19
+      X21 : L . y = f . (y, x) by LM5, X18, X19
       .= 0. G by X1, Z10, FUNCOP_1: 7;
       hence
       L . (a * y) = a * L . y by X20, X21, RLVECT_1: 10;
@@ -1909,7 +1909,7 @@ definition
   end;
 end;
 
-theorem LM6:
+theorem LM6 :
   for E, F, G be RealLinearSpace,
   L be Function of
   [: the carrier of E, the carrier of F :],
@@ -1936,18 +1936,18 @@ proof
   [: the carrier of E, the carrier of F :],
   the carrier of G;
 
-  DM1: dom (curry L) = the carrier of E
+  DM1 : dom (curry L) = the carrier of E
   &
   dom (curry' L) = the carrier of F
   by LM1;
-  DM2: dom L = the carrier of [: E, F :]
+  DM2 : dom L = the carrier of [: E, F :]
   by FUNCT_2:def 1;
   hereby
     assume
-    P1: L is Bilinear;
+    P1 : L is Bilinear;
     then
 
-    P2: (for v being Point of E
+    P2 : (for v being Point of E
     st v in dom (curry L)
     holds (curry L) . v is additive homogeneous
     Function of F, G)
@@ -1966,10 +1966,10 @@ proof
       Ly =
       (curry' L) . y as additive homogeneous
       Function of E, G by P2, DM1;
-      A1: Ly . x1 = L . (x1, y) by LM5
+      A1 : Ly . x1 = L . (x1, y) by LM5
       .= L . (x1, y);
 
-      A2: Ly . x2 = L . (x2, y) by LM5
+      A2 : Ly . x2 = L . (x2, y) by LM5
       .= L . (x2, y);
 
       thus
@@ -1990,7 +1990,7 @@ proof
       (curry' L) . y as additive homogeneous
       Function of E, G by P2, DM1;
 
-      A3: Ly . x = L . (x, y) by LM5;
+      A3 : Ly . x = L . (x, y) by LM5;
       thus
       L . (a * x, y) = Ly . (a * x) by LM5
       .= a * Ly . x by LOPBAN_1:def 5
@@ -2005,9 +2005,9 @@ proof
       Lx =
       (curry L) . x as additive homogeneous
       Function of F, G by P2, DM1;
-      A4: Lx . y1 = L . (x, y1) by LM4
+      A4 : Lx . y1 = L . (x, y1) by LM4
       .= L . (x, y1);
-      A5: Lx . y2 = L . (x, y2) by LM4
+      A5 : Lx . y2 = L . (x, y2) by LM4
       .= L . (x, y2);
       thus
       L . (x, y1 + y2) = Lx . (y1 + y2) by LM4
@@ -2026,7 +2026,7 @@ proof
       Lx =
       (curry L) . x as additive homogeneous
       Function of F, G by P2, DM1;
-      A6: Lx . y = L . (x, y) by LM4
+      A6 : Lx . y = L . (x, y) by LM4
       .= L . (x, y);
       thus
       L . (x, a * y) = Lx . (a * y) by LM4
@@ -2035,28 +2035,28 @@ proof
     end;
   end;
   assume that
-  A7: for x1, x2 be Point of E, y be Point of F
+  A7 : for x1, x2 be Point of E, y be Point of F
   holds L . (x1 + x2, y) = L . (x1, y) + L . (x2, y)
   and
-  A8: for x be Point of E, y be Point of F,
+  A8 : for x be Point of E, y be Point of F,
   a be Real
   holds L . (a * x, y) = a * L . (x, y)
   and
-  A9: for x be Point of E, y1, y2 be Point of F
+  A9 : for x be Point of E, y1, y2 be Point of F
   holds L . (x, y1 + y2) = L . (x, y1) + L . (x, y2)
   and
-  A10: for x be Point of E, y be Point of F,
+  A10 : for x be Point of E, y be Point of F,
   a be Real
   holds L . (x, a * y) = a * L . (x, y);
 
-  A11: for x being Point of E
+  A11 : for x being Point of E
   st x in dom (curry L)
   holds (curry L) . x is additive homogeneous
   Function of F, G
   proof
     let x being Point of E;
     assume
-    A12: x in dom (curry L);
+    A12 : x in dom (curry L);
     reconsider Lx = (curry L) . x
     as Function of F, G by LM2, A12, DM1;
     for y1, y2 be Point of F
@@ -2064,22 +2064,22 @@ proof
     Lx . (y1 + y2) = Lx . y1 + Lx . y2
     proof
       let y1, y2 be Point of F;
-      F1: L . (x, y1) = Lx . y1 by LM4, A12, DM1;
-      F2: L . (x, y2) = Lx . y2 by LM4, A12, DM1;
+      F1 : L . (x, y1) = Lx . y1 by LM4, A12, DM1;
+      F2 : L . (x, y2) = Lx . y2 by LM4, A12, DM1;
       thus Lx . (y1 + y2)
       = L . (x, y1 + y2) by LM4, A12, DM1
       .= L . (x, y1) + L . (x, y2) by A9
       .= Lx . y1 + Lx . y2 by F1, F2;
     end;
     then
-    A13: Lx is additive by VECTSP_1:def 20;
+    A13 : Lx is additive by VECTSP_1:def 20;
 
     for y be Point of F, a be Real
     holds
     Lx . (a * y) = a * Lx . y
     proof
       let y be Point of F, a be Real;
-      F3: L . (x, y) = Lx . y by LM4, A12, DM1;
+      F3 : L . (x, y) = Lx . y by LM4, A12, DM1;
       thus Lx . (a * y)
       = L . (x, a * y) by LM4, A12, DM1
       .= a * L . (x, y) by A10
@@ -2090,14 +2090,14 @@ proof
     hence thesis by A13;
   end;
 
-  A14: for y being Point of F
+  A14 : for y being Point of F
   st y in dom (curry' L)
   holds (curry' L) . y is additive homogeneous
   Function of E, G
   proof
     let y being Point of F;
     assume
-    A14: y in dom (curry' L);
+    A14 : y in dom (curry' L);
     reconsider Ly = (curry' L) . y
     as Function of E, G by LM3, A15, DM1;
     for x1, x2 be Point of E
@@ -2105,22 +2105,22 @@ proof
     Ly . (x1 + x2) = Ly . x1 + Ly . x2
     proof
       let x1, x2 be Point of E;
-      F4: L . (x1, y) = Ly . x1 by LM5, A16, DM1;
-      F5: L . (x2, y) = Ly . x2 by LM5, A17, DM1;
+      F4 : L . (x1, y) = Ly . x1 by LM5, A16, DM1;
+      F5 : L . (x2, y) = Ly . x2 by LM5, A17, DM1;
       thus Ly . (x1 + x2)
       = L . (x1 + x2, y) by LM5, A18, DM1
       .= L . (x1, y) + L . (x2, y) by A7
       .= Ly . x1 + Ly . x2 by F4, F5;
     end;
     then
-    A19: Ly is additive by VECTSP_1:def 20;
+    A19 : Ly is additive by VECTSP_1:def 20;
 
     for x be Point of E, a be Real
     holds
     Ly . (a * x) = a * Ly . x
     proof
       let x be Point of E, a be Real;
-      F6: L . (x, y) = Ly . x by LM5, A20, DM1;
+      F6 : L . (x, y) = Ly . x by LM5, A20, DM1;
       thus Ly . (a * x)
       = L . (a * x, y) by LM5, A21, DM1
       .= a * L . (x, y) by A8
@@ -2136,7 +2136,7 @@ end;
 definition
   let E, F, G be RealLinearSpace;
   let f be Function of [: E, F :], G;
-  attr f is Bilinear means:DefBilinear2:
+  attr f is Bilinear means: DefBilinear2 :
   ex g be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G
@@ -2153,7 +2153,7 @@ registration
     set g = ([: the carrier of E, the carrier of F :])
     --> 0. G;
 
-    A1: g is Bilinear by EX1;
+    A1 : g is Bilinear by EX1;
     reconsider f = g as Function of [: E, F :], G;
     take f;
     thus thesis by A1;
@@ -2177,7 +2177,7 @@ definition
   end;
 end;
 
-theorem LM7:
+theorem LM7 :
   for E, F, G be RealLinearSpace,
   L be Function of [: E, F :], G
   holds
@@ -2207,10 +2207,10 @@ proof
   Function of [: the carrier of E, the carrier of F :],
   the carrier of G;
 
-  P1: L0 is Bilinear iff L is Bilinear
+  P1 : L0 is Bilinear iff L is Bilinear
   by DefBilinear2;
 
-  P2:
+  P2 :
   L is Bilinear
   iff
   ((for x1, x2 be Point of E, y be Point of F
@@ -2240,7 +2240,7 @@ end;
 definition
   let E, F, G be RealNormSpace;
   let f be Function of [: E, F :], G;
-  attr f is Bilinear means:DefBilinear3:
+  attr f is Bilinear means: DefBilinear3 :
   ex g be Function of
   [: the carrier of E, the carrier of F :],
   the carrier of G
@@ -2257,7 +2257,7 @@ registration
     set g = ([: the carrier of E, the carrier of F :])
     --> 0. G;
 
-    A1: g is Bilinear by EX1;
+    A1 : g is Bilinear by EX1;
 
     reconsider f = g as Function of [: E, F :], G;
     take f;
@@ -2294,7 +2294,7 @@ definition
   end;
 end;
 
-theorem LM8:
+theorem LM8 :
   for E, F, G be RealNormSpace,
   L be Function of [: E, F :], G
   holds
@@ -2324,9 +2324,9 @@ proof
   Function of [: the carrier of E, the carrier of F :],
   the carrier of G;
 
-  P1: L0 is Bilinear iff L is Bilinear
+  P1 : L0 is Bilinear iff L is Bilinear
   by DefBilinear3;
-  P2:
+  P2 :
   L is Bilinear
   iff
   ((for x1, x2 be Point of E, y be Point of F
