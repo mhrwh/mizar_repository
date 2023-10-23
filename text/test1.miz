@@ -31,7 +31,7 @@ registration
   cluster reflexive -> complete for 1-element RelStr;
   coherence;
 end;
-
+aaa
 definition
   let T be RelStr;
   mode type of T is Element of T;
