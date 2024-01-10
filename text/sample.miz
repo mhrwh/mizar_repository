@@ -1,0 +1,277 @@
+environ
+
+ vocabularies NUMBERS, ZFMISC_1, RELAT_2, REWRITE1, XBOOLE_0, ORDERS_2,
+      PRELAMB, SUBSET_1, IDEAL_1, TARSKI, RELAT_1, STRUCT_0, ARYTM_3, XXREAL_0,
+      WAYBEL_0, LATTICE3, LATTICES, EQREL_1, CARD_FIL, YELLOW_0, ORDINAL2,
+      BINOP_1, FUNCT_1, OPOSET_1, CARD_1, FUNCOP_1, FINSUB_1, YELLOW_1,
+      ARYTM_0, WELLORD2, FINSEQ_1, FUNCT_7, NAT_1, ORDINAL4, FINSET_1,
+      FINSEQ_5, ARYTM_1, ABCMIZ_0, ABIAN, XCMPLX_0;
+ notations TARSKI, XBOOLE_0, ZFMISC_1, RELAT_1, RELAT_2, SUBSET_1, ORDINAL1,
+      FINSUB_1, CARD_1, FUNCT_1, RELSET_1, PARTFUN1, FUNCT_2, BINOP_1,
+      ORDERS_1, FUNCOP_1, FINSET_1, FINSEQ_1, FUNCT_4, ALG_1, FINSEQ_5,
+      NUMBERS, XCMPLX_0, NAT_1, DOMAIN_1, STRUCT_0, ORDERS_2, LATTICE3,
+      REWRITE1, YELLOW_0, WAYBEL_0, YELLOW_1, YELLOW_7, XXREAL_0;
+ constructors FINSUB_1, NAT_1, FINSEQ_5, REWRITE1, BORSUK_1, LATTICE3,
+      WAYBEL_0, YELLOW_1, FUNCOP_1, XREAL_0, NUMBERS;
+ registrations XBOOLE_0, SUBSET_1, RELAT_1, FUNCT_2, FINSET_1, FINSUB_1,
+      XXREAL_0, XREAL_0, NAT_1, FINSEQ_1, REWRITE1, STRUCT_0, LATTICE3,
+      YELLOW_0, WAYBEL_0, YELLOW_1, YELLOW_7, YELLOW_9, ORDINAL1, CARD_1,
+      RELSET_1;
+ requirements BOOLE, SUBSET, NUMERALS, REAL, ARITHM;
+ definitions TARSKI, XBOOLE_0, RELAT_2, FUNCT_1, FINSEQ_1, LATTICE3, REWRITE1,
+      YELLOW_0, WAYBEL_0, RELSET_1;
+ equalities FINSEQ_1, LATTICE3, ORDINAL1;
+ expansions TARSKI, XBOOLE_0, FUNCT_1, FINSEQ_1, LATTICE3, REWRITE1, WAYBEL_0;
+ theorems TARSKI, XBOOLE_0, XBOOLE_1, SUBSET_1, FINSUB_1, NAT_1, FINSEQ_1,
+      CARD_1, TREES_1, FINSEQ_5, RELAT_1, RELSET_1, FUNCT_1, FUNCT_2, FUNCT_4,
+      FUNCOP_1, STRUCT_0, ORDERS_2, YELLOW_0, WAYBEL_0, YELLOW_1, YELLOW_4,
+      YELLOW_7, WAYBEL_6, WAYBEL_8, ZFMISC_1, FINSEQ_2, FINSEQ_3, HILBERT2,
+      REWRITE1, ORDINAL1, XREAL_1, XXREAL_0, CARD_2;
+ schemes XBOOLE_0, NAT_1, FUNCT_1, FUNCT_2, RECDEF_1, RELSET_1, ORDERS_1,
+      XFAMILY;
+
+begin :: Semilattice of type widening
+
+registration
+  cluster reflexive -> complete for 1-element RelStr;
+  coherence;
+end;
+
+definition
+  let T be RelStr;
+  mode type of T is Element of T;
+end;
+
+definition
+  let T be RelStr;
+  attr T is Noetherian means
+  :Def1:
+  the InternalRel of T is co-well_founded;
+end;
+
+registration
+  cluster -> Noetherian for 1-element RelStr;
+  coherence
+  proof
+    let S be 1-element RelStr;
+    let Y be set;
+    set R = the InternalRel of S;
+    assume
+A1: Y c= field R;
+    assume Y <> {};
+    then reconsider X = Y as non empty set;
+    set a = the Element of X;
+    take a;
+    thus a in Y;
+A2: a in field R by A1;
+    let b be object;
+A3: field R c= (the carrier of S) \/ the carrier of S by RELSET_1:8;
+    assume b in Y;
+    then b in field R by A1;
+    hence thesis by A2,A3,ZFMISC_1:def 10;
+  end;
+end;
+
+definition
+  let T be non empty RelStr;
+  redefine attr T is Noetherian means
+  :Def2:
+  for A being non empty Subset of T
+  ex a being Element of T st a in A & for b being Element of T st b in A holds
+  not a < b;
+  compatibility
+  proof
+    set R = the InternalRel of T;
+    thus T is Noetherian implies for A being non empty Subset of T ex a being
+    Element of T st a in A & for b being Element of T st b in A holds not a < b
+    proof
+      assume
+A1:   for Y being set st Y c= field R & Y <> {}
+      ex a being object st a in
+      Y & for b being object st b in Y & a <> b holds not [a,b] in R;
+      let A be non empty Subset of T;
+      set a = the Element of A;
+      reconsider a as Element of T;
+      set Y = A /\ field R;
+      per cases;
+      suppose
+A2:     A misses field R;
+        take a;
+        thus a in A;
+        let b be Element of T;
+        assume that
+        b in A and
+A3:     a < b;
+        B1: a <= b by A3,ORDERS_2:def 6;
+        then [a,b] in R by ORDERS_2:def 5;
+        then a in field R by RELAT_1:15;
+        hence contradiction by A2,XBOOLE_0:3;
+      end;
+      suppose
+        A meets field R;
+        then Y <> {};
+        then consider x being object such that
+        then consider x being object such that
+A4:     x in Y and
+A5:     for y being object st y in Y & x <> y holds not [x,y] in R by A1,
+XBOOLE_1:17;
+        reconsider x as Element of T by A4;
+        take x;
+        thus x in A by A4,XBOOLE_0:def 4;
+        let b be Element of T;
+        assume that
+A6:     b in A and
+A7:     x < b;
+        x <= b by A7,ORDERS_2:def 6;
+        then
+A8:     [x,b] in R by ORDERS_2:def 5;
+        then b in field R by RELAT_1:15;
+        then b in Y by A6,XBOOLE_0:def 4;
+        hence contradiction by A5,A7,A8;
+      end;
+    end;
+    assume
+A9: for A being non empty Subset of T ex a being Element of T st a in
+    A & for b being Element of T st b in A holds not a < b;
+    let Y be set;
+    assume that
+A10: Y c= field R and
+A11: Y <> {};
+    field R c= (the carrier of T) \/ the carrier of T by RELSET_1:8;
+    then reconsider A = Y as non empty Subset of T by A10,A11,XBOOLE_1:1;
+    consider a being Element of T such that
+A12: a in A and
+A13: for b being Element of T st b in A holds not a < b by A9;
+    take a;
+    thus a in Y by A12;
+    let b be object;
+    assume that
+A14: b in Y and
+A15: a <> b;
+    b in A by A14;
+    then reconsider b as Element of T;
+    not a < b by A13,A14;
+    then not a <= b by A15,ORDERS_2:def 6;
+    hence thesis by ORDERS_2:def 5;
+  end;
+end;
+
+definition
+  let T be Poset;
+  attr T is Mizar-widening-like means
+  T is sup-Semilattice & T is Noetherian;
+end;
+
+registration
+  cluster Mizar-widening-like -> Noetherian with_suprema upper-bounded for
+Poset;
+  coherence
+  proof
+    let T be Poset;
+    assume that
+A1: T is sup-Semilattice and
+A2: T is Noetherian;
+    reconsider S = T as sup-Semilattice by A1;
+    the carrier of S c= the carrier of S;
+    then consider a being Element of T such that
+    a in the carrier of T and
+A3: for b being Element of T st b in the carrier of T holds not a < b
+    by A2,Def2;
+    thus T is Noetherian with_suprema by A1,A2;
+    take a;
+    let b be Element of T;
+A4: a"\/"b in the carrier of S;
+    then
+A5: a"\/"b >= a by YELLOW_0:22;
+    not a < a"\/"b by A3,A4;
+    then a"\/"b = a by A5,ORDERS_2:def 6;
+    hence thesis by A1,YELLOW_0:22;
+  end;
+end;
+
+registration
+  cluster Noetherian -> Mizar-widening-like for sup-Semilattice;
+  coherence;
+end;
+
+registration
+  cluster Mizar-widening-like for complete sup-Semilattice;
+  existence
+  proof
+    set T =the 1-element LATTICE;
+    take T;
+    thus T is sup-Semilattice;
+    thus thesis;
+  end;
+end;
+
+registration
+  let T be Noetherian RelStr;
+  cluster the InternalRel of T -> co-well_founded;
+  coherence by Def1;
+end;
+
+theorem Th1:
+  for T being Noetherian sup-Semilattice for I being Ideal of T
+  holds ex_sup_of I, T & sup I in I
+proof
+  let T be Noetherian sup-Semilattice;
+  let I be Ideal of T;
+  consider a being Element of T such that
+A1: a in I and
+A2: for b being Element of T st b in I holds not a < b by Def2;
+A3: I is_<=_than a
+  proof
+    let d be Element of T;
+    assume d in I;
+    then a"\/"d in I by A1,WAYBEL_0:40;
+    then
+A4: not a < a"\/"d by A2;
+    a <= a"\/"d by YELLOW_0:22;
+    then a = a"\/"d by A4,ORDERS_2:def 6;
+    hence thesis by YELLOW_0:22;
+  end;
+  for c being Element of T st I is_<=_than c holds a <= c by A1;
+  hence thesis by A1,A3,YELLOW_0:30;
+end;
+
+begin :: Adjectives
+
+definition
+  struct AdjectiveStr (# adjectives -> set, non-op -> UnOp of the adjectives
+  #);
+end;
+
+definition
+  let A be AdjectiveStr;
+  attr A is void means
+  :Def4:
+  the adjectives of A is empty;
+  mode adjective of A is Element of the adjectives of A;
+end;
+
+theorem
+  for A1,A2 being AdjectiveStr st the adjectives of A1 = the adjectives
+  of A2 holds A1 is void implies A2 is void;
+
+definition
+  let A be AdjectiveStr;
+  let a be Element of the adjectives of A;
+  func non-a -> adjective of A equals
+  (the non-op of A).a;
+  coherence
+  proof
+    per cases;
+    suppose
+A1:   the adjectives of A is empty;
+      then
+A2:   dom the non-op of A = the adjectives of A;
+      a = {} by A1,SUBSET_1:def 1;
+      hence thesis by A1,A2,FUNCT_1:def 2;
+    end;
+    suppose
+      the adjectives of A is non empty;
+      hence thesis by FUNCT_2:5;
+    end;
+  end;
+end;
