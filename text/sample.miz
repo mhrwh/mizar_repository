@@ -1,5 +1,4 @@
 environ
-
  vocabularies NUMBERS, ZFMISC_1, RELAT_2, REWRITE1, XBOOLE_0, ORDERS_2,
       PRELAMB, SUBSET_1, IDEAL_1, TARSKI, RELAT_1, STRUCT_0, ARYTM_3, XXREAL_0,
       WAYBEL_0, LATTICE3, LATTICES, EQREL_1, CARD_FIL, YELLOW_0, ORDINAL2,
@@ -29,26 +28,21 @@ environ
       REWRITE1, ORDINAL1, XREAL_1, XXREAL_0, CARD_2;
  schemes XBOOLE_0, NAT_1, FUNCT_1, FUNCT_2, RECDEF_1, RELSET_1, ORDERS_1,
       XFAMILY;
-
 begin :: Semilattice of type widening
-
 registration
   cluster reflexive -> complete for 1-element RelStr;
   coherence;
 end;
-
 definition
   let T be RelStr;
   mode type of T is Element of T;
 end;
-
 definition
   let T be RelStr;
   attr T is Noetherian means
   :Def1:
   the InternalRel of T is co-well_founded;
 end;
-
 registration
   cluster -> Noetherian for 1-element RelStr;
   coherence
@@ -71,7 +65,6 @@ A3: field R c= (the carrier of S) \/ the carrier of S by RELSET_1:8;
     hence thesis by A2,A3,ZFMISC_1:def 10;
   end;
 end;
-
 definition
   let T be non empty RelStr;
   redefine attr T is Noetherian means
@@ -102,7 +95,7 @@ A2:     A misses field R;
         assume that
         b in A and
 A3:     a < b;
-        B1: a <= b by A3,ORDERS_2:def 6;
+        a <= b by A3,ORDERS_2:def 6;
         then [a,b] in R by ORDERS_2:def 5;
         then a in field R by RELAT_1:15;
         hence contradiction by A2,XBOOLE_0:3;
@@ -155,13 +148,11 @@ A15: a <> b;
     hence thesis by ORDERS_2:def 5;
   end;
 end;
-
 definition
   let T be Poset;
   attr T is Mizar-widening-like means
   T is sup-Semilattice & T is Noetherian;
 end;
-
 registration
   cluster Mizar-widening-like -> Noetherian with_suprema upper-bounded for
 Poset;
@@ -188,12 +179,10 @@ A5: a"\/"b >= a by YELLOW_0:22;
     hence thesis by A1,YELLOW_0:22;
   end;
 end;
-
 registration
   cluster Noetherian -> Mizar-widening-like for sup-Semilattice;
   coherence;
 end;
-
 registration
   cluster Mizar-widening-like for complete sup-Semilattice;
   existence
@@ -204,13 +193,11 @@ registration
     thus thesis;
   end;
 end;
-
 registration
   let T be Noetherian RelStr;
   cluster the InternalRel of T -> co-well_founded;
   coherence by Def1;
 end;
-
 theorem Th1:
   for T being Noetherian sup-Semilattice for I being Ideal of T
   holds ex_sup_of I, T & sup I in I
@@ -234,14 +221,11 @@ A4: not a < a"\/"d by A2;
   for c being Element of T st I is_<=_than c holds a <= c by A1;
   hence thesis by A1,A3,YELLOW_0:30;
 end;
-
 begin :: Adjectives
-
 definition
   struct AdjectiveStr (# adjectives -> set, non-op -> UnOp of the adjectives
   #);
 end;
-
 definition
   let A be AdjectiveStr;
   attr A is void means
@@ -249,11 +233,9 @@ definition
   the adjectives of A is empty;
   mode adjective of A is Element of the adjectives of A;
 end;
-
 theorem
   for A1,A2 being AdjectiveStr st the adjectives of A1 = the adjectives
   of A2 holds A1 is void implies A2 is void;
-
 definition
   let A be AdjectiveStr;
   let a be Element of the adjectives of A;
