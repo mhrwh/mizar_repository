@@ -33,7 +33,7 @@ environ
 begin :: Semilattice of type widening
 
 registration
-  cluster reflexive -> complete for 1 -element RelStr;
+  cluster reflexive -> complete for 1-element RelStr;
   coherence;
 end;
 
@@ -50,25 +50,25 @@ definition
 end;
 
 registration
-  cluster -> Noetherian for 1 -element RelStr;
+  cluster -> Noetherian for 1-element RelStr;
   coherence
   proof
-    let S be 1 -element RelStr;
+    let S be 1-element RelStr;
     let Y be set;
     set R = the InternalRel of S;
     assume
-    A1: Y c= field R;
+A1: Y c= field R;
     assume Y <> {};
     then reconsider X = Y as non empty set;
     set a = the Element of X;
     take a;
     thus a in Y;
-    A2: a in field R by A1;
+A2: a in field R by A1;
     let b be object;
-    A3: field R c= (the carrier of S) \/ the carrier of S by RELSET_1: 8;
+A3: field R c= (the carrier of S) \/ the carrier of S by RELSET_1:8;
     assume b in Y;
     then b in field R by A1;
-    hence thesis by A2, A3, ZFMISC_1:def 10;
+    hence thesis by A2,A3,ZFMISC_1:def 10;
   end;
 end;
 
@@ -86,72 +86,72 @@ definition
     Element of T st a in A & for b being Element of T st b in A holds not a < b
     proof
       assume
-      A1: for Y being set st Y c= field R & Y <> {}
+A1:   for Y being set st Y c= field R & Y <> {}
       ex a being object st a in
-      Y & for b being object st b in Y & a <> b holds not [a, b] in R;
+      Y & for b being object st b in Y & a <> b holds not [a,b] in R;
       let A be non empty Subset of T;
       set a = the Element of A;
       reconsider a as Element of T;
       set Y = A /\ field R;
       per cases;
       suppose
-        A2: A misses field R;
+A2:     A misses field R;
         take a;
         thus a in A;
         let b be Element of T;
         assume that
         b in A and
-        A3: a < b;
-        a <= b by A3, ORDERS_2:def 6;
-        then [a, b] in R by ORDERS_2:def 5;
-        then a in field R by RELAT_1: 15;
-        hence contradiction by A2, XBOOLE_0: 3;
+A3:     a < b;
+        a <= b by A3,ORDERS_2:def 6;
+        then [a,b] in R by ORDERS_2:def 5;
+        then a in field R by RELAT_1:15;
+        hence contradiction by A2,XBOOLE_0:3;
       end;
       suppose
         A meets field R;
         then Y <> {};
         then consider x being object such that
         then consider x being object such that
-        A4: x in Y and
-        A5: for y being object st y in Y & x <> y holds not [x, y] in R by A1,
-        XBOOLE_1: 17;
+A4:     x in Y and
+A5:     for y being object st y in Y & x <> y holds not [x,y] in R by A1,
+XBOOLE_1:17;
         reconsider x as Element of T by A4;
         take x;
-        thus x in A by A4, XBOOLE_0:def 4;
+        thus x in A by A4,XBOOLE_0:def 4;
         let b be Element of T;
         assume that
-        A6: b in A and
-        A7: x < b;
-        x <= b by A7, ORDERS_2:def 6;
+A6:     b in A and
+A7:     x < b;
+        x <= b by A7,ORDERS_2:def 6;
         then
-        A8: [x, b] in R by ORDERS_2:def 5;
-        then b in field R by RELAT_1: 15;
-        then b in Y by A6, XBOOLE_0:def 4;
-        hence contradiction by A5, A7, A8;
+A8:     [x,b] in R by ORDERS_2:def 5;
+        then b in field R by RELAT_1:15;
+        then b in Y by A6,XBOOLE_0:def 4;
+        hence contradiction by A5,A7,A8;
       end;
     end;
     assume
-    A9: for A being non empty Subset of T ex a being Element of T st a in
+A9: for A being non empty Subset of T ex a being Element of T st a in
     A & for b being Element of T st b in A holds not a < b;
     let Y be set;
     assume that
-    A10: Y c= field R and
-    A11: Y <> {};
-    field R c= (the carrier of T) \/ the carrier of T by RELSET_1: 8;
-    then reconsider A = Y as non empty Subset of T by A10, A11, XBOOLE_1: 1;
+A10: Y c= field R and
+A11: Y <> {};
+    field R c= (the carrier of T) \/ the carrier of T by RELSET_1:8;
+    then reconsider A = Y as non empty Subset of T by A10,A11,XBOOLE_1:1;
     consider a being Element of T such that
-    A12: a in A and
-    A13: for b being Element of T st b in A holds not a < b by A9;
+A12: a in A and
+A13: for b being Element of T st b in A holds not a < b by A9;
     take a;
     thus a in Y by A12;
     let b be object;
     assume that
-    A14: b in Y and
-    A15: a <> b;
+A14: b in Y and
+A15: a <> b;
     b in A by A14;
     then reconsider b as Element of T;
-    not a < b by A13, A14;
-    then not a <= b by A15, ORDERS_2:def 6;
+    not a < b by A13,A14;
+    then not a <= b by A15,ORDERS_2:def 6;
     hence thesis by ORDERS_2:def 5;
   end;
 end;
@@ -164,28 +164,28 @@ end;
 
 registration
   cluster Mizar-widening-like -> Noetherian with_suprema upper-bounded for
-  Poset;
+Poset;
   coherence
   proof
     let T be Poset;
     assume that
-    A1: T is sup-Semilattice and
-    A2: T is Noetherian;
+A1: T is sup-Semilattice and
+A2: T is Noetherian;
     reconsider S = T as sup-Semilattice by A1;
     the carrier of S c= the carrier of S;
     then consider a being Element of T such that
     a in the carrier of T and
-    A3: for b being Element of T st b in the carrier of T holds not a < b
-    by A2, Def2;
-    thus T is Noetherian with_suprema by A1, A2;
+A3: for b being Element of T st b in the carrier of T holds not a < b
+    by A2,Def2;
+    thus T is Noetherian with_suprema by A1,A2;
     take a;
     let b be Element of T;
-    A4: a "\/" b in the carrier of S;
+A4: a"\/"b in the carrier of S;
     then
-    A5: a "\/" b >= a by YELLOW_0: 22;
-    not a < a "\/" b by A3, A4;
-    then a "\/" b = a by A5, ORDERS_2:def 6;
-    hence thesis by A1, YELLOW_0: 22;
+A5: a"\/"b >= a by YELLOW_0:22;
+    not a < a"\/"b by A3,A4;
+    then a"\/"b = a by A5,ORDERS_2:def 6;
+    hence thesis by A1,YELLOW_0:22;
   end;
 end;
 
@@ -198,7 +198,7 @@ registration
   cluster Mizar-widening-like for complete sup-Semilattice;
   existence
   proof
-    set T = the 1 -element LATTICE;
+    set T =the 1-element LATTICE;
     take T;
     thus T is sup-Semilattice;
     thus thesis;
@@ -218,21 +218,21 @@ proof
   let T be Noetherian sup-Semilattice;
   let I be Ideal of T;
   consider a being Element of T such that
-  A1: a in I and
-  A2: for b being Element of T st b in I holds not a < b by Def2;
-  A3: I is_<=_than a
+A1: a in I and
+A2: for b being Element of T st b in I holds not a < b by Def2;
+A3: I is_<=_than a
   proof
     let d be Element of T;
     assume d in I;
-    then a "\/" d in I by A1, WAYBEL_0: 40;
+    then a"\/"d in I by A1,WAYBEL_0:40;
     then
-    A4: not a < a "\/" d by A2;
-    a <= a "\/" d by YELLOW_0: 22;
-    then a = a "\/" d by A4, ORDERS_2:def 6;
-    hence thesis by YELLOW_0: 22;
+A4: not a < a"\/"d by A2;
+    a <= a"\/"d by YELLOW_0:22;
+    then a = a"\/"d by A4,ORDERS_2:def 6;
+    hence thesis by YELLOW_0:22;
   end;
   for c being Element of T st I is_<=_than c holds a <= c by A1;
-  hence thesis by A1, A3, YELLOW_0: 30;
+  hence thesis by A1,A3,YELLOW_0:30;
 end;
 
 begin :: Adjectives
@@ -251,27 +251,27 @@ definition
 end;
 
 theorem
-  for A1, A2 being AdjectiveStr st the adjectives of A1 = the adjectives
+  for A1,A2 being AdjectiveStr st the adjectives of A1 = the adjectives
   of A2 holds A1 is void implies A2 is void;
 
 definition
   let A be AdjectiveStr;
   let a be Element of the adjectives of A;
-  func non- a -> adjective of A equals
-  (the non-op of A) . a;
+  func non-a -> adjective of A equals
+  (the non-op of A).a;
   coherence
   proof
     per cases;
     suppose
-      A1: the adjectives of A is empty;
+A1:   the adjectives of A is empty;
       then
-      A2: dom the non-op of A = the adjectives of A;
-      a = {} by A1, SUBSET_1:def 1;
-      hence thesis by A1, A2, FUNCT_1:def 2;
+A2:   dom the non-op of A = the adjectives of A;
+      a = {} by A1,SUBSET_1:def 1;
+      hence thesis by A1,A2,FUNCT_1:def 2;
     end;
     suppose
       the adjectives of A is non empty;
-      hence thesis by FUNCT_2: 5;
+      hence thesis by FUNCT_2:5;
     end;
   end;
 end;
