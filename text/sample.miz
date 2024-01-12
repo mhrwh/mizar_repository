@@ -102,8 +102,8 @@ A2:     A misses field R;
         assume that
         b in A and
 A3:     a < b;
-    B1: a <= b by A3,ORDERS_2:def 6;
-    [a,b] in R by B1,ORDERS_2:def 5;
+        a <= b by A3,ORDERS_2:def 6;
+        then [a,b] in R by ORDERS_2:def 5;
         then a in field R by RELAT_1:15;
         hence contradiction by A2,XBOOLE_0:3;
       end;
