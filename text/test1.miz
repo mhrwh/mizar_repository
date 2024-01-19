@@ -14,8 +14,8 @@ theorem
   for X being set holds X \ {} = X
 proof
   let X be set;
-  thus x \ {} c= x
-  by XBOOLE_0:def 5;
+  thus X \ {} c= X
+  by XBOOLE_0:def 6;
   let x be object;
 A1: not x in {} by XBOOLE_0:def 1;
   assume x in X;
