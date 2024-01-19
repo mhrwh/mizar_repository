@@ -1,5 +1,4 @@
 environ
-
  vocabularies XBOOLE_0, TARSKI;
  notations TARSKI, XBOOLE_0;
  constructors TARSKI, XBOOLE_0;
