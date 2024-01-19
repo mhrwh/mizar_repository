@@ -9,6 +9,19 @@ environ
 
 begin
 
+theorem Th3:
+  for a, b being set holds a is Subset of b iff a c= b
+proof
+  let a, b be set;
+  hereby
+    assume a is Subset of b;
+    then a in bool b by SUBSET_1:def 1;
+    hence a c= b by ZFMISC_1:def 1;
+  end;
+  assume a c= b;
+  then a in bool b by ZFMISC_1:def 1;
+  hence thesis by SUBSET_1:def 1;
+end;
 
 theorem
   for a, b, c being set st a in b & b is Subset of c holds a is Element of c
