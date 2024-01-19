@@ -1,47 +1,23 @@
-:: Families of Subsets
-::  by Andrzej Trybulec
-::
-:: Received December 13, 2012
-:: Copyright (c) 2012-2021 Association of Mizar Users
-::           (Stowarzyszenie Uzytkownikow Mizara, Bialystok, Poland).
-:: This code can be distributed under the GNU General Public Licence
-:: version 3.0 or later, or the Creative Commons Attribution-ShareAlike
-:: License version 3.0 or later, subject to the binding interpretation
-:: detailed in file COPYING.interpretation.
-:: See COPYING.GPL and COPYING.CC-BY-SA for the full text of these
-:: licenses, or see http://www.gnu.org/licenses/gpl.html and
-:: http://creativecommons.org/licenses/by-sa/3.0/.
-
 environ
 
- vocabularies MCART_1, RECDEF_2;
- notations TARSKI, XTUPLE_0;
- constructors TARSKI, XTUPLE_0;
- theorems TARSKI;
- schemes TARSKI;
+ vocabularies SUBSET_1, XBOOLE_0, TARSKI, ZFMISC_1;
+ notations TARSKI, XBOOLE_0, SUBSET_1, ZFMISC_1;
+ constructors TARSKI, SUBSET_1;
+ registrations SUBSET_1;
+ requirements BOOLE;
+ theorems TARSKI, SUBSET_1, ZFMISC_1;
 
 begin
 
 
-
-scheme
-  Extensionality { X,Y() -> set, P[set] } : X() = Y()
-provided
-A1: for x being set holds x in X() iff P[x] and
-A2: for x being set holds x in Y() iff P[x]
+theorem
+  for a, b, c being set st a in b & b is Subset of c holds a is Element of c
 proof
-A3: for x being object holds x in Y() implies x in X()
-   proof let x be object;
-     reconsider x as set by TARSKI:1;
-     x in Y() implies x in X() by A1,A2;
-    hence thesis;
-   end;
-  for x being object holds x in X() implies x in Y()
-   proof let x be object;
-     reconsider x as set by TARSKI:1;
-     x in X() implies x in Y() by A1,A2;
-    hence thesis;
-   end;
-  hence thesis by A3,TARSKI:2;
+  let a, b, c be set;
+  assume that
+A1: a in b and
+A2: b is Subset of c;
+  b c= c by A2,Th3;
+  then a in c by A1,TARSKI:def 3;
+  hence thesis by SUBSET_1:def 1;
 end;
-
