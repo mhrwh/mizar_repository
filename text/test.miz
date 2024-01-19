@@ -77,7 +77,7 @@ A1: Y c= field R;
     set a = the Element of X;
     take a;
     thus a in Y;
-A2: a in field R by A3;
+A2: a in field R by A1;
     let b be object;
 A3: field R c= (the carrier of S) \/ the carrier of S by RELSET_1:8;
     assume b in Y;
