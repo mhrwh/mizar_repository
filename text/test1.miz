@@ -6,7 +6,7 @@ environ
  definitions XBOOLE_0, TARSKI;
  equalities XBOOLE_0;
  expansions TARSKI;
- theorems TARSKI;
+ theorems XBOOLE_0, TARSKI;
 
 begin
 
