@@ -20,3 +20,4 @@ A1: not x in {} by XBOOLE_0:def 5;
   assume x in X;
   hence thesis by A1,XBOOLE_0:def 5;
 end;
+
