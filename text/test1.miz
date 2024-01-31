@@ -8,7 +8,7 @@ environ
  theorems XBOOLE_0, TARSKI;
 
 begin
-
+ 
 theorem
   for X being set holds X \ {} = X
 proof

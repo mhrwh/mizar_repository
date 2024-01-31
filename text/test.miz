@@ -62,7 +62,7 @@ definition
   :Def1:
   the InternalRel of T is co-well_founded;
 end;
-aaa   
+aaa    
 registration
   cluster -> Noetherian for 1-element RelStr;
   coherence
