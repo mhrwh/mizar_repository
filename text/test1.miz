@@ -1,11 +1,11 @@
 environ
- vocabularies XBOOLE_0, TARSKI;
- notations TARSKI, XBOOLE_0;
- constructors TARSKI, XBOOLE_0;
- definitions XBOOLE_0, TARSKI;
- equalities XBOOLE_0;
- expansions TARSKI;
- theorems XBOOLE_0, TARSKI;
+  vocabularies XBOOLE_0, TARSKI;
+  notations TARSKI, XBOOLE_0;
+  constructors TARSKI, XBOOLE_0;
+  definitions XBOOLE_0, TARSKI;
+  equalities XBOOLE_0;
+  expansions TARSKI;
+  theorems XBOOLE_0, TARSKI;
 
 begin
 
