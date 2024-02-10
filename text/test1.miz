@@ -891,7 +891,7 @@ A40:  a9 in N and
 A41:  K // N by A36,AFF_1:49;
 A42:  N is being_line by A41,AFF_1:36;
       a9,c9 // K by A20,A35,AFF_1:29,32;
-      then a9,c9 // N by A41,AFF_1:43;
+      then a9,c9 // N by A41,AFF_1:42;
       then
 A43:  c9 in N by A40,A42,AFF_1:23;
       assume LIN a,b,c;
