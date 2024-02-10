@@ -14,13 +14,13 @@
 
 environ
 
-  vocabularies DIRAF, SUBSET_1, AFF_1, ANALOAF, INCSP_1, AFF_2, AFF_3;
-  notations STRUCT_0, ANALOAF, DIRAF, AFF_1, AFF_2;
-  constructors AFF_1, AFF_2;
-  registrations STRUCT_0;
-  definitions AFF_2;
-  expansions AFF_2;
-  theorems AFF_1, AFF_2;
+ vocabularies DIRAF, SUBSET_1, AFF_1, ANALOAF, INCSP_1, AFF_2, AFF_3;
+ notations STRUCT_0, ANALOAF, DIRAF, AFF_1, AFF_2;
+ constructors AFF_1, AFF_2;
+ registrations STRUCT_0;
+ definitions AFF_2;
+ expansions AFF_2;
+ theorems AFF_1, AFF_2;
 
 begin
 
@@ -891,7 +891,7 @@ A40:  a9 in N and
 A41:  K // N by A36,AFF_1:49;
 A42:  N is being_line by A41,AFF_1:36;
       a9,c9 // K by A20,A35,AFF_1:29,32;
-      then a9,c9 // N by A41;
+      then a9,c9 // N by A41,AFF_1:43;
       then
 A43:  c9 in N by A40,A42,AFF_1:23;
       assume LIN a,b,c;
@@ -989,7 +989,7 @@ A76:      b9<>q;
           assume b9=q;
           then LIN b,b9,c by A53,AFF_1:6;
           then c in P by A10,A11,A15,A50,AFF_1:25;
-          hence contradiction by A3,A4,A7,A12,A15,A16,A45,AFF_1:18;
+          hence contradiction by A3,A4,A7,A12,A15,A16,A45;
         end;
         hence thesis by A75;
       end;
