@@ -11,7 +11,6 @@
 :: See COPYING.GPL and COPYING.CC-BY-SA for the full text of these
 :: licenses, or see http://www.gnu.org/licenses/gpl.html and
 :: http://creativecommons.org/licenses/by-sa/3.0/.
-
 environ
 
  vocabularies DIRAF, SUBSET_1, AFF_1, ANALOAF, INCSP_1, AFF_2, AFF_3;
