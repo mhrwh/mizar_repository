@@ -12,7 +12,7 @@
 :: licenses, or see http://www.gnu.org/licenses/gpl.html and
 :: http://creativecommons.org/licenses/by-sa/3.0/.
 environ
-
+aaa
  vocabularies DIRAF, SUBSET_1, AFF_1, ANALOAF, INCSP_1, AFF_2, AFF_3;
  notations STRUCT_0, ANALOAF, DIRAF, AFF_1, AFF_2;
  constructors AFF_1, AFF_2;
