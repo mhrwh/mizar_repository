@@ -159,7 +159,7 @@ A30: not LIN o,a,c
     assume LIN o,a,c;
     then c in A by A2,A8,A9,A15,AFF_1:25;
     hence contradiction by A2,A4,A7,A8,A13,A17,AFF_1:18;
-  end; 
+  end;
 A31: p in K by A22,AFF_1:def 2;
 A32: LIN o,c,c9 & LIN b9,q,c9 by A4,A13,A14,A25,AFF_1:6,21;
 A33: b<>c & a <> p by A19,A20,A24,A26,AFF_1:7,14;
